@@ -6,7 +6,7 @@ This app use Recycler View and Card View at Core for card management
 	- start from base , colors and cards are working fine
 	- <details><summary>Preview 1</summary>
 
-	[![prototype 1](/app_images/preview_v_1.png "prototype 1")]	(/app_images/preview_v_1.png "prototype 1")
+		[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
 
 	</details>
 	- added onclick listenr for recycler view
@@ -14,7 +14,7 @@ This app use Recycler View and Card View at Core for card management
 	- added current weekday rotate support
 	- <details><summary>Preview 2</summary>
 
-	[![prototype 2](/app_images/preview_v_2.png "prototype 2")]	(/app_images/preview_v_2.png "prototype 2")
+		[![prototype 2](/app_images/preview_v_2.png "prototype 2")](/app_images/preview_v_2.png "prototype 2")
 
 	</details>
 
