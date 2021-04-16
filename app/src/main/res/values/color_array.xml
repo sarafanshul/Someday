@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="bg_colors">
+        <item>@drawable/cardview_bg_blue</item>
+        <item>@drawable/cardview_bg_cyan</item>
+        <item>@drawable/cardview_bg_dark_green</item>
+        <item>@drawable/cardview_bg_green</item>
+        <item>@drawable/cardview_bg_orange</item>
+        <item>@drawable/cardview_bg_pink</item>
+        <item>@drawable/cardview_bg_red</item>
+    </array>
+</resources>
