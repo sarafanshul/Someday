@@ -4,11 +4,13 @@ This app use Recycler View and Card View at Core for card management
 ## Log
 - Date - 16-04-21
 	- start from base , colors and cards are working fine
+	
 	- <details><summary>Preview 1</summary>
 
 		[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
 
 	</details>
+	
 	- added onclick listenr for recycler view
 	- Fragment View in Recycler View seems "Hard" to implement 
 	- added current weekday rotate support
