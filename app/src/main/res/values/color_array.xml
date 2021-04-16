@@ -8,5 +8,6 @@
         <item>@drawable/cardview_bg_orange</item>
         <item>@drawable/cardview_bg_pink</item>
         <item>@drawable/cardview_bg_red</item>
+        <item>@drawable/bg_white</item>
     </array>
 </resources>

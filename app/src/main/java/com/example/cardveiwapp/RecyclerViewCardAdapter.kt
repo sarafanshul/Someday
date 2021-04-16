@@ -1,14 +1,17 @@
 package com.example.cardveiwapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_cardview.view.*
+import java.util.*
 
 class RecyclerViewCardAdapter(
     var cur_data : List<CardData>
 ) : RecyclerView.Adapter<RecyclerViewCardAdapter.CardViewHolder>() {
+
     inner class CardViewHolder( itemView : View ) : RecyclerView.ViewHolder( itemView )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
