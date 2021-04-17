@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 	}
 	fun updateAdapter(newData: CardData ) : Unit{
-		adapter.cur_data[POSITION].tasks = newData.tasks
+		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
 		adapter.notifyItemChanged( POSITION )
 	}
 

@@ -22,16 +22,30 @@ This app use Recycler View and Card View at Core for card management
 	- Shift from Fragment to Activity Done
 	- Data comes Back from new Activity and updates the recyclerView Adapter
 
+- Date - 17-04-21
+	- Added RecyclerView in Second Activity
+	- Data Updates works "Smoothly"
+	- Alert Dialog for data update implemented
+	- <details><summary>Preview 3</summary>
+
+		[![prototype 3](/app_images/preview_v_3.png "prototype 3")](/app_images/preview_v_3.png "prototype 3")
+
+	</details>
+
 ## TODO
 ### Important
 -	~~Implemnt CardView in Recycler View~~
 -	~~Implement layout Structure~~
 -	~~Implemnt ItemOnclick in Recycler View~~
 -	 ~~Shift from Fragment to Activity~~
--	 RecyclerView in Second Activity for displaying Tasks
+-	 ~~RecyclerView in Second Activity for displaying Tasks~~
+-	 ~~AlertDialog for "Round Button"~~
+-	 Delete Items from List and Update
 
 ### Sub-Important
 -	 Long Press Expands Card Height
 -	 Padding/Margin 
 -	 Highlight the current day 
 -	 Good Gradients 
+-	Round Button
+-	Good CheckBox
