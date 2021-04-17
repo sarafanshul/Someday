@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 			CardData( "Wednesday" , "Good Day !" , mutableListOf( "Project" , "Diet" ) ) ,
 			CardData( "Thursday" , "Good Day !" , mutableListOf( "Exercise" , "Exercise" )  ) ,
 			CardData( "Friday" , "Good Day !" , mutableListOf( "Recharge" , "Exercise" )  ) ,
-			CardData( "Saturday" , "Good Day !" , mutableListOf( "Bill" , "Exercise" )  )
+			CardData( "Saturday" , "Good Day !" , mutableListOf( "Bill" , "Exercise" ,"Project" , "Diet" ,"Learn" , "A very Very long string for testing Views"  )  )
 		)
 		val dateInfo = Calendar.getInstance().get(Calendar.DAY_OF_WEEK).toInt()
 		Log.d( "rotate val" , "${dateInfo}" )

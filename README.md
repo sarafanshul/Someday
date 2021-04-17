@@ -31,6 +31,18 @@ This app use Recycler View and Card View at Core for card management
 		[![prototype 3](/app_images/preview_v_3.png "prototype 3")](/app_images/preview_v_3.png "prototype 3")
 
 	</details>
+	- Added Swipe to Delete with Undo SnackBar
+	- <details><summary>Preview 4</summary>
+
+		[![prototype 4](/app_images/preview_v_4.png "prototype 4")](/app_images/preview_v_4.png "prototype 4")
+
+	</details>
+	- Added red Color and Delete Icon in Swipe To Delete
+	- <details><summary>Preview 5</summary>
+
+		[![prototype 5](/app_images/preview_v_5.png "prototype 5")](/app_images/preview_v_5.png "prototype 5")
+
+	</details>
 
 ## TODO
 ### Important
@@ -40,7 +52,8 @@ This app use Recycler View and Card View at Core for card management
 -	 ~~Shift from Fragment to Activity~~
 -	 ~~RecyclerView in Second Activity for displaying Tasks~~
 -	 ~~AlertDialog for "Round Button"~~
--	 Delete Items from List and Update
+-	 ~~Delete Items from List and Update~~
+-	~~Add Swipe To Delete and Undo~~
 
 ### Sub-Important
 -	 Long Press Expands Card Height

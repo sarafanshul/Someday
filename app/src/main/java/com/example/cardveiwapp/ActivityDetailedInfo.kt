@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.EditText
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_detailed_info.*
 
@@ -34,6 +35,9 @@ class ActivityDetailedInfo : AppCompatActivity() {
 			tasksData.add( newTask )
 			adapter.notifyDataSetChanged()
 		}
+
+		var itemTouchHelper = ItemTouchHelper( SwipeToDelete(adapter) )
+		itemTouchHelper.attachToRecyclerView( activity_detailed_info_rv_main )
 
 		activity_detailed_info_btn_add.setOnClickListener {
 			val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)

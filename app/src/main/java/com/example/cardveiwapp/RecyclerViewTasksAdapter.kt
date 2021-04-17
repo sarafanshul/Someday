@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info_recycler_view.view.*
 
 class RecyclerViewTasksAdapter(
@@ -23,5 +24,20 @@ class RecyclerViewTasksAdapter(
         holder.itemView.apply {
             activity_detailed_info_recycler_view_tw_main.text = tasks[ position ]
         }
+    }
+
+    // https://www.youtube.com/watch?v=eEonjkmox-0
+    private var removed_pos = 0
+    private var removed_item : String = ""
+    fun deleteItem( viewHolder: RecyclerView.ViewHolder ) : Unit {
+        removed_pos = viewHolder.adapterPosition
+        removed_item = tasks[ removed_pos ]
+        tasks.removeAt( removed_pos )
+        notifyItemRemoved( removed_pos )
+
+        Snackbar.make( viewHolder.itemView , "$removed_item Deleted." ,Snackbar.LENGTH_LONG ).setAction("UNDO"){
+            tasks.add( removed_pos , removed_item )
+            notifyItemInserted( removed_pos )
+        }.show()
     }
 }
