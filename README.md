@@ -9,7 +9,7 @@ This app use Recycler View and Card View at Core for card management
 		[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
 
 	</details>
-	
+
 	- added onclick listenr for recycler view
 	- Fragment View in Recycler View seems "Hard" to implement 
 	- added current weekday rotate support
@@ -31,12 +31,14 @@ This app use Recycler View and Card View at Core for card management
 		[![prototype 3](/app_images/preview_v_3.png "prototype 3")](/app_images/preview_v_3.png "prototype 3")
 
 	</details>
+	
 	- Added Swipe to Delete with Undo SnackBar
 	- <details><summary>Preview 4</summary>
 
 		[![prototype 4](/app_images/preview_v_4.png "prototype 4")](/app_images/preview_v_4.png "prototype 4")
 
 	</details>
+	
 	- Added red Color and Delete Icon in Swipe To Delete
 	- <details><summary>Preview 5</summary>
 
