@@ -29,4 +29,5 @@ class RecyclerViewCardAdapter(
             recycler_cardview_ll_main1.background = resources.obtainTypedArray( R.array.bg_colors ).getDrawable( cur_data[ position ]._color )
         }
     }
+
 }
