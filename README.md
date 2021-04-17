@@ -1,6 +1,33 @@
 # Weekday Plannar
 This app use Recycler View and Card View at Core for card management
 
+## Preview
+
+Main Screen App Layout
+
+- <details><summary>Show</summary>
+
+	[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
+
+</details>
+
+Second Activity Layout
+
+- <details><summary>Show</summary>
+
+	[![prototype 2](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
+
+</details>
+
+Input Task Layout
+
+- <details><summary>Show</summary>
+
+	[![prototype 3](/app_images/preview_v_8.png "prototype 8")](/app_images/preview_v_8.png "prototype 3")
+
+</details>
+
+
 ## Log
 - Date - 16-04-21
 	- start from base , colors and cards are working fine
@@ -45,22 +72,48 @@ This app use Recycler View and Card View at Core for card management
 		[![prototype 5](/app_images/preview_v_5.png "prototype 5")](/app_images/preview_v_5.png "prototype 5")
 
 	</details>
+	
+	- replaced Toasts to SnackBar 
+	- replaced *Round Button to [FAB](https://material.io/develop/android/components/floating-action-button)
+	- fixed Snackbar overlap to FAB
+	- Good Gradients added and Icons and Theme Colors
+	- Added Title Divider using styles
+	- <details><summary>Preview 7</summary>
+
+		[![prototype 7](/app_images/preview_v_7.png "prototype 7")](/app_images/preview_v_7.png "prototype 7")
+
+	</details>
+	
+	- Added red Color and Delete Icon in Swipe To Delete
+	- Changed CardView to Material TextView in RecyclerView - 2
+	- Alert Dialog to Material IO AlertDialog
+	- <details><summary>Preview 9</summary>
+
+		[![prototype 9](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
+
+	</details>
+	
 
 ## TODO
 ### Important
 -	~~Implemnt CardView in Recycler View~~
 -	~~Implement layout Structure~~
 -	~~Implemnt ItemOnclick in Recycler View~~
--	 ~~Shift from Fragment to Activity~~
--	 ~~RecyclerView in Second Activity for displaying Tasks~~
--	 ~~AlertDialog for "Round Button"~~
--	 ~~Delete Items from List and Update~~
+-	~~Shift from Fragment to Activity~~
+-	~~RecyclerView in Second Activity for displaying Tasks~~
+-	~~AlertDialog for "Round Button"~~
+-	~~Delete Items from List and Update~~
 -	~~Add Swipe To Delete and Undo~~
+-	~~fixed Snackbar overlap to FAB~~
+-	~~Added Title Divider~~
+-	Implement Database
 
 ### Sub-Important
--	 Long Press Expands Card Height
--	 Padding/Margin 
--	 Highlight the current day 
--	 Good Gradients 
+-	Long Press Expands Card Height
+-	Padding/Margin 
+-	Highlight the current day 
+-	Good Gradients 
 -	Round Button
 -	Good CheckBox
+-	App Icon
+-	Fonts

@@ -3,11 +3,12 @@
     <array name="bg_colors">
         <item>@drawable/cardview_bg_blue</item>
         <item>@drawable/cardview_bg_cyan</item>
-        <item>@drawable/cardview_bg_dark_green</item>
+        <item>@drawable/cardview_bg_peach</item>
         <item>@drawable/cardview_bg_green</item>
         <item>@drawable/cardview_bg_orange</item>
         <item>@drawable/cardview_bg_pink</item>
         <item>@drawable/cardview_bg_red</item>
+        <item>@drawable/cardview_bg_dark_green</item>
         <item>@drawable/bg_white</item>
     </array>
 </resources>

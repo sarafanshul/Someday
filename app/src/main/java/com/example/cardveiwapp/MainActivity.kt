@@ -69,13 +69,13 @@ class MainActivity : AppCompatActivity() {
 
 	private fun createDataDefault( ) : MutableList<CardData>{
 		var _card_data = mutableListOf(
-			CardData( "Sunday" , "Good Day !" , mutableListOf( "Groceries" , "Exercise" )  ) ,
-			CardData( "Monday" , "Good Day !" , mutableListOf( "Learn" , "Exercise" )  ) ,
-			CardData( "Tuesday" , "Good Day !" , mutableListOf( "Date" , "Exercise" )  ) ,
-			CardData( "Wednesday" , "Good Day !" , mutableListOf( "Project" , "Diet" ) ) ,
-			CardData( "Thursday" , "Good Day !" , mutableListOf( "Exercise" , "Exercise" )  ) ,
-			CardData( "Friday" , "Good Day !" , mutableListOf( "Recharge" , "Exercise" )  ) ,
-			CardData( "Saturday" , "Good Day !" , mutableListOf( "Bill" , "Exercise" ,"Project" , "Diet" ,"Learn" , "A very Very long string for testing Views"  )  )
+			CardData( "Sunday" , "Rest Day !" , mutableListOf( "Groceries" , "Exercise" )  ) ,
+			CardData( "Monday" , "Chest & Shoulders" , mutableListOf( "Learn" , "Exercise" )  ) ,
+			CardData( "Tuesday" , "Legs & Triceps" , mutableListOf( "Date" , "Exercise" )  ) ,
+			CardData( "Wednesday" , "Back & Biceps" , mutableListOf( "Project" , "Diet" ) ) ,
+			CardData( "Thursday" , "Chest & Shoulders" , mutableListOf( "Exercise" , "Exercise" )  ) ,
+			CardData( "Friday" , "Legs & Triceps" , mutableListOf( "Recharge" , "Exercise" )  ) ,
+			CardData( "Saturday" , "Back & Biceps" , mutableListOf( "Bill" , "Exercise" ,"Project" , "Diet" ,"Learn" , "A very Very long string for testing Views"  )  )
 		)
 		val dateInfo = Calendar.getInstance().get(Calendar.DAY_OF_WEEK).toInt()
 		Log.d( "rotate val" , "${dateInfo}" )

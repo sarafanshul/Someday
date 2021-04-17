@@ -3,8 +3,11 @@ package com.example.cardveiwapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_detailed_info.*
 import kotlinx.android.synthetic.main.activity_detailed_info_recycler_view.view.*
 
 class RecyclerViewTasksAdapter(
@@ -29,15 +32,17 @@ class RecyclerViewTasksAdapter(
     // https://www.youtube.com/watch?v=eEonjkmox-0
     private var removed_pos = 0
     private var removed_item : String = ""
-    fun deleteItem( viewHolder: RecyclerView.ViewHolder ) : Unit {
+    fun deleteItem( viewHolder: RecyclerView.ViewHolder) : Unit {
         removed_pos = viewHolder.adapterPosition
         removed_item = tasks[ removed_pos ]
         tasks.removeAt( removed_pos )
         notifyItemRemoved( removed_pos )
-
-        Snackbar.make( viewHolder.itemView , "$removed_item Deleted." ,Snackbar.LENGTH_LONG ).setAction("UNDO"){
-            tasks.add( removed_pos , removed_item )
-            notifyItemInserted( removed_pos )
+        Snackbar.make( viewHolder.itemView , "$removed_item Deleted." ,Snackbar.LENGTH_LONG ).apply {
+            setAction("UNDO") {
+                tasks.add(removed_pos, removed_item)
+                notifyItemInserted(removed_pos)
+            }
+            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_efab_add) // for on top of efab
         }.show()
     }
 }

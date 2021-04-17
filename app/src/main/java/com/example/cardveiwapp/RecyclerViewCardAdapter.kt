@@ -25,7 +25,7 @@ class RecyclerViewCardAdapter(
         holder.itemView.apply {
             recycler_cardview_tv_heading.text = cur_data[ position ].title
             recycler_cardview_tv_sub_heading.text = cur_data[ position ].subtitle
-            recycler_cardview_tv_content.text = if(cur_data[ position ].tasks.size > 0) cur_data[ position ].tasks[ 0 ] else "NA"
+            recycler_cardview_tv_content.text = if(cur_data[ position ].tasks.size > 0) cur_data[ position ].tasks[ 0 ] else "Every Thing Done !!"
             recycler_cardview_ll_main1.background = resources.obtainTypedArray( R.array.bg_colors ).getDrawable( cur_data[ position ]._color )
         }
     }

@@ -27,16 +27,17 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_detailed_info_tw_heading"
         tools:layout_editor_absoluteX="16dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/activity_detailed_info_btn_add"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/activity_detailed_info_efab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_round"
-        android:text="+"
-        android:textSize="50sp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="25dp"
+        android:contentDescription="Create"
+        android:foregroundGravity="bottom|right"
+        app:icon="@drawable/ic_plus"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_detailed_info_rv_main"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

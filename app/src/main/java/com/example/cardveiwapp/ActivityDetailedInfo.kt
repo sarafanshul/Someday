@@ -1,15 +1,22 @@
 package com.example.cardveiwapp
 
+import android.app.ActionBar
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
+import android.view.WindowManager
 import android.widget.EditText
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info.*
 
 // https://tutorial.eyehunts.com/android/getting-a-result-from-an-activity-android-startactivityforresult-example-kotlin/
@@ -32,26 +39,30 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		activity_detailed_info_rv_main.layoutManager = LinearLayoutManager(this)
 
 		fun updateTask( newTask : String ) : Unit {
+			Snackbar.make( activity_detailed_info_rv_main , "${newTask} added." , Snackbar.LENGTH_LONG).apply{
+				anchorView = activity_detailed_info_efab_add
+			}.show() // for SnackBar Above the Create Button
 			tasksData.add( newTask )
-			adapter.notifyDataSetChanged()
+			adapter.notifyItemChanged( adapter.itemCount )
 		}
 
 		var itemTouchHelper = ItemTouchHelper( SwipeToDelete(adapter) )
 		itemTouchHelper.attachToRecyclerView( activity_detailed_info_rv_main )
 
-		activity_detailed_info_btn_add.setOnClickListener {
+		activity_detailed_info_efab_add.setOnClickListener {
 			val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)
 			var alert_et = _dialogLayout.findViewById<EditText>( R.id.activity_detailed_info_alert_dialog_et_main )
-			val _displayTextAlertDialog = AlertDialog.Builder( this )
-				.setTitle("Add a New Task")
-				.setMessage("Enter Task bellow")
+			alert_et.hint = "Here !"
+			val _displayTextAlertDialog = MaterialAlertDialogBuilder( this )
+				.setTitle("New Task ?")
 				.setView( _dialogLayout )
 				.setPositiveButton("OK"){ _ ,_ ->
 					val inp = alert_et.text.toString()
-					updateTask( inp )
-				}.setNegativeButton("CANCEL"){ _ ,_ ->}
-				.create()
+					if( inp?.length > 0 )  updateTask( inp )
+				}.setNegativeButton("CANCEL"){ _ ,_ ->
+				}.create()
 
+			_displayTextAlertDialog.window?.setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE )
 			_displayTextAlertDialog.show()
 		}
 
