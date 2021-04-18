@@ -7,7 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
+import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -17,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
+		// Splash Screen
+		setTheme( R.style.Theme_CardVeiwApp )
+
 		setContentView(R.layout.activity_main)
 
 		// Recycler View
@@ -29,13 +37,26 @@ class MainActivity : AppCompatActivity() {
 		// onClick Listenr for Recycler View
 		main_rv_main.addOnItemTouchListener( RecyclerItemClickListenr( this , main_rv_main , object : RecyclerItemClickListenr.OnItemClickListener {
 			override fun onItemClick(view: View, position: Int) {
-				Log.d( "Short Click" , "Clicked" ) // test
 				itemOnClickRecyclerView( this@MainActivity , view , position )
-			}
+			} // to Activity 2
 			override fun onItemLongClick(view: View?, position: Int) {
-				Log.d( "Long Click" , "Clicked" )
-
-			}
+				val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)
+				var alert_et = _dialogLayout.findViewById<EditText>( R.id.activity_detailed_info_alert_dialog_et_main )
+				val _displayTextAlertDialog = MaterialAlertDialogBuilder( this@MainActivity )
+					.setTitle("New Sub Task for ${_card_data[position].title} ?")
+					.setView( _dialogLayout )
+					.setPositiveButton("OK"){ _ ,_ ->
+						val inp = alert_et.text.toString()
+						if( inp?.length > 0 ) {
+							_card_data[position].subtitle = inp
+							adapter.notifyItemChanged(position)
+							Snackbar.make(main_rv_main ,"Sub Task for ${_card_data[position].title} Changed !" , Snackbar.LENGTH_SHORT).show()
+						}
+					}.setNegativeButton("CANCEL"){ _ ,_ ->
+					}.create()
+				_displayTextAlertDialog.window?.setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE )
+				_displayTextAlertDialog.show()
+			} // Changes Subtext
 		} ) )
 	}
 
@@ -62,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 		}
 
 	}
+
 	fun updateAdapter(newData: CardData ) : Unit{
 		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
 		adapter.notifyItemChanged( POSITION )

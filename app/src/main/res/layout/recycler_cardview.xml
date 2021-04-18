@@ -68,6 +68,8 @@
                     android:id="@+id/recycler_cardview_tv_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textColor="@color/mat_black"
                     android:text="Content goes Here"
                     android:textSize="16dp"/>

@@ -27,6 +27,10 @@ class ActivityDetailedInfo : AppCompatActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
+		// Splash Screen
+		setTheme( R.style.Theme_CardVeiwApp )
+
 		setContentView(R.layout.activity_detailed_info)
 
 		val curData = intent.getSerializableExtra("DATA") as CardData
@@ -39,7 +43,7 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		activity_detailed_info_rv_main.layoutManager = LinearLayoutManager(this)
 
 		fun updateTask( newTask : String ) : Unit {
-			Snackbar.make( activity_detailed_info_rv_main , "${newTask} added." , Snackbar.LENGTH_LONG).apply{
+			Snackbar.make( activity_detailed_info_rv_main , "${newTask} Added !" , Snackbar.LENGTH_LONG).apply{
 				anchorView = activity_detailed_info_efab_add
 			}.show() // for SnackBar Above the Create Button
 			tasksData.add( newTask )

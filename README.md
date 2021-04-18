@@ -92,7 +92,10 @@ Input Task Layout
 		[![prototype 9](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
 
 	</details>
-	
+
+- Date - 18-04-21
+	- Added Splash Screen
+	- Long Click to Change Subtext
 
 ## TODO
 ### Important
@@ -110,10 +113,10 @@ Input Task Layout
 
 ### Sub-Important
 -	Long Press Expands Card Height
--	Padding/Margin 
--	Highlight the current day 
+-	~~Padding/Margin~~ 
+-	~~Highlight the current day~~
 -	Good Gradients 
--	Round Button
--	Good CheckBox
--	App Icon
+-	~~Round Button~~
+-	~~Good CheckBox~~
+-	~~App Icon~~
 -	Fonts
