@@ -13,7 +13,7 @@ class CardViewModel(
     application: Application
 ) : AndroidViewModel( application ) {
 
-    private val getAllData : LiveData<List<CardData>>
+    val getAllData : LiveData<List<CardData>>
     private val repository : CardDataRepository
 
     init {
@@ -25,6 +25,12 @@ class CardViewModel(
     fun insertOrUpdate(cardData: CardData){
         viewModelScope.launch ( Dispatchers.IO ){
             repository.insertOrUpdate( cardData )
+        }
+    }
+
+    fun updateCard( cardData: CardData ){
+        viewModelScope.launch ( Dispatchers.IO ){
+            repository.updateCard( cardData )
         }
     }
 

@@ -8,7 +8,7 @@ import androidx.room.*
 @Dao
 interface CardDataDao {
 
-    @Query( "SELECT * FROM CardData" )
+    @Query( "SELECT * FROM CardData ORDER BY _color ASC" )
     fun getAll(): LiveData<List<CardData>>
 
     @Query( "SELECT * FROM CardData WHERE title = :titleCardData " )
@@ -22,6 +22,9 @@ interface CardDataDao {
 
     @Insert
     fun insertData(data: List<CardData>)
+
+    @Update
+    suspend fun updateCard(cardData: CardData)
 
     // https://www.youtube.com/watch?v=CcaCpRCACzU
 //    private suspend fun getAll(): Result<Exception ,List<CardData> > = Result

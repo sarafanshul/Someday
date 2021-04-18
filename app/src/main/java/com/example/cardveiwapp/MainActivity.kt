@@ -31,40 +31,47 @@ class MainActivity : AppCompatActivity() {
 		// Splash Screen
 		setTheme( R.style.Theme_CardVeiwApp )
 
-		setContentView(R.layout.activity_main)
-
 		// https://github.com/googlecodelabs/android-room-with-a-view/issues/155
 		cardViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CardViewModel::class.java )
 
+		setContentView(R.layout.activity_main)
+
 		// Recycler View
-		val _card_data = createDataDefault()
-		adapter = RecyclerViewCardAdapter( _card_data )
+//		val _card_data = createDataDefault()
+		adapter = RecyclerViewCardAdapter( )
 		main_rv_main.adapter = adapter
 		main_rv_main.layoutManager = LinearLayoutManager( this )
 
+		cardViewModel.getAllData.observe( this , androidx.lifecycle.Observer {cardData ->
+			adapter.setData( cardData )
+			}
+		)
 
 		// onClick Listenr for Recycler View
 		main_rv_main.addOnItemTouchListener( RecyclerItemClickListenr( this , main_rv_main , object : RecyclerItemClickListenr.OnItemClickListener {
 			override fun onItemClick(view: View, position: Int) {
 				itemOnClickRecyclerView( this@MainActivity , position )
 			} // to Activity 2
+
 			override fun onItemLongClick(view: View?, position: Int) {
+
 				val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)
 				var alert_et = _dialogLayout.findViewById<EditText>( R.id.activity_detailed_info_alert_dialog_et_main )
+
 				val _displayTextAlertDialog = MaterialAlertDialogBuilder( this@MainActivity )
-					.setTitle("New Sub Task for ${_card_data[position].title} ?")
+					.setTitle("New Sub Task for ${adapter.cur_data[position].title} ?")
 					.setView( _dialogLayout )
 					.setPositiveButton("OK"){ _ ,_ ->
 						val inp = alert_et.text.toString()
 						if(inp.isNotEmpty()) {
-							_card_data[position].subtitle = inp
+							adapter.cur_data[position].subtitle = inp
 							POSITION = position
-							updateAdapter( _card_data[position] )
-							Snackbar.make(main_rv_main ,"Sub Task for ${_card_data[position].title} Changed !" , Snackbar.LENGTH_SHORT).show()
+							updateAdapter( adapter.cur_data[position] )
+							Snackbar.make(main_rv_main ,"Sub Task for ${adapter.cur_data[position].title} Changed !" , Snackbar.LENGTH_SHORT).show()
 						}
 					}.setNegativeButton("CANCEL"){ _ ,_ ->
 					}.create()
-//				_displayTextAlertDialog.window?.setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE )
+//
 				_displayTextAlertDialog.show()
 			} // Changes Subtext
 		} ) )
@@ -97,26 +104,19 @@ class MainActivity : AppCompatActivity() {
 
 	// updates the data
 	fun updateAdapter(newData: CardData ) : Unit{
+		if( adapter.cur_data[POSITION] == newData ) return
 		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
 		adapter.notifyItemChanged( POSITION )
-		cardViewModel.insertOrUpdate( adapter.cur_data[POSITION] )
+		cardViewModel.updateCard( adapter.cur_data[POSITION] )
 	}
 
-	private fun createDataDefault( ) : MutableList<CardData>{
+	private fun createDataDefault( ) {
 		var _card_data = PREPOPULATE_DATA
-
-		// called 3 times ? why
-		val dateInfo = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
-		Log.d( "rotate val" , "${dateInfo}" )
-		Log.d( "before rotate" ,_card_data.toString() )
-		Collections.rotate( _card_data , -dateInfo + 1)
-		Log.d( "after rotate" ,_card_data.toString() )
 
 		_card_data.forEach {
 			cardViewModel.insertOrUpdate( it )
 		}
 
-		return _card_data
 	}
 
 }

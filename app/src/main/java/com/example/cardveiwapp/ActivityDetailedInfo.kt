@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.EditText
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,12 +25,15 @@ import kotlinx.android.synthetic.main.activity_detailed_info.*
 class ActivityDetailedInfo : AppCompatActivity() {
 
 	lateinit var adapter: RecyclerViewTasksAdapter
+	private lateinit var cardViewModel : CardViewModel
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
 		// Splash Screen
 		setTheme( R.style.Theme_CardVeiwApp )
+
+		cardViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CardViewModel::class.java )
 
 		setContentView(R.layout.activity_detailed_info)
 

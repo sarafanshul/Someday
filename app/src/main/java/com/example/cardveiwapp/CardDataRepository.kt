@@ -10,4 +10,8 @@ class CardDataRepository(
     suspend fun insertOrUpdate(card : CardData){
         cardDataDao.insertOrUpdate( card )
     }
+
+    suspend fun updateCard( card: CardData ){
+        cardDataDao.updateCard( card )
+    }
 }

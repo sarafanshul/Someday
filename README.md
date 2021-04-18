@@ -98,7 +98,10 @@ Input Task Layout
 	- Long Click to Change Subtext
 	- Database Model and View Model added with Live Updates
 	- insertOrUpdate seems to work on IO thread
-
+	- Database Updates But only from main Activity
+	- Today on Top does not work , replaced with today Highlighted or more Width ?
+	- Repository and View Models Extended
+	
 ## TODO
 ### Important
 -	~~Implemnt CardView in Recycler View~~
@@ -115,6 +118,7 @@ Input Task Layout
 -	Pre-Populate Database (not HardCoded)
 -	ViewModel Implementation
 
+
 ### Sub-Important
 -	Long Press Expands Card Height
 -	~~Padding/Margin~~ 
@@ -124,3 +128,4 @@ Input Task Layout
 -	~~Good CheckBox~~
 -	~~App Icon~~
 -	Fonts
+-	Today on Top
