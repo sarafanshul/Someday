@@ -46,6 +46,8 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/recycler_cardview_tv_sub_heading"
                         android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:layout_height="wrap_content"
                         android:text="TV Sub Heading"
                         android:textSize="15sp"

@@ -33,11 +33,14 @@ class ActivityDetailedInfo : AppCompatActivity() {
 
 		setContentView(R.layout.activity_detailed_info)
 
+		// Data form Main Activity
 		val curData = intent.getSerializableExtra("DATA") as CardData
 
+		// Copy of Data
 		var tasksData = curData.tasks
 		activity_detailed_info_tw_heading.text = curData.title
 
+		// Activite-2 recycler view adapter
 		adapter = RecyclerViewTasksAdapter( tasksData )
 		activity_detailed_info_rv_main.adapter = adapter
 		activity_detailed_info_rv_main.layoutManager = LinearLayoutManager(this)
@@ -53,6 +56,7 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		var itemTouchHelper = ItemTouchHelper( SwipeToDelete(adapter) )
 		itemTouchHelper.attachToRecyclerView( activity_detailed_info_rv_main )
 
+		// alert dialog for fab
 		activity_detailed_info_efab_add.setOnClickListener {
 			val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)
 			var alert_et = _dialogLayout.findViewById<EditText>( R.id.activity_detailed_info_alert_dialog_et_main )
@@ -62,7 +66,8 @@ class ActivityDetailedInfo : AppCompatActivity() {
 				.setView( _dialogLayout )
 				.setPositiveButton("OK"){ _ ,_ ->
 					val inp = alert_et.text.toString()
-					if( inp?.length > 0 )  updateTask( inp )
+					if( inp?.length > 0 )
+						updateTask( inp )
 				}.setNegativeButton("CANCEL"){ _ ,_ ->
 				}.create()
 

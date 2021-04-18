@@ -96,6 +96,8 @@ Input Task Layout
 - Date - 18-04-21
 	- Added Splash Screen
 	- Long Click to Change Subtext
+	- Database Model and View Model added with Live Updates
+	- insertOrUpdate seems to work on IO thread
 
 ## TODO
 ### Important
@@ -110,6 +112,8 @@ Input Task Layout
 -	~~fixed Snackbar overlap to FAB~~
 -	~~Added Title Divider~~
 -	Implement Database
+-	Pre-Populate Database (not HardCoded)
+-	ViewModel Implementation
 
 ### Sub-Important
 -	Long Press Expands Card Height
