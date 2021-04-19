@@ -26,6 +26,4 @@ interface CardDataDao {
     @Update
     suspend fun updateCard(cardData: CardData)
 
-    // https://www.youtube.com/watch?v=CcaCpRCACzU
-//    private suspend fun getAll(): Result<Exception ,List<CardData> > = Result
 }

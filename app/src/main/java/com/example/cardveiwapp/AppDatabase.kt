@@ -7,6 +7,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import android.content.Context
 import android.util.Log
 import androidx.room.TypeConverters
+import java.util.concurrent.Executors
 
 @Database(
     entities = [CardData::class],
@@ -29,14 +30,35 @@ abstract class AppDatabase : RoomDatabase() {
                 return tempInstance
 
             synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext ,
-                    AppDatabase::class.java ,
-                    DATABASE_NAME
-                ).build()
+                val instance = buildDatabase( context )
+//                val instance = Room.databaseBuilder(
+//                    context.applicationContext ,
+//                    AppDatabase::class.java ,
+//                    DATABASE_NAME
+//                ).build()
                 INSTANCE = instance
                 return instance
             }
+        }
+
+        private fun buildDatabase( context: Context ) : AppDatabase {
+            return Room.databaseBuilder(
+                context.applicationContext ,
+                AppDatabase::class.java ,
+                DATABASE_NAME
+            ).addCallback(object :  RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase){
+                    super.onCreate(db)
+                    // pre-populate data
+                    Executors.newSingleThreadExecutor().execute {
+                        INSTANCE?.let {
+                            it.cardDataDao().insertData( PREPOPULATE_DATA )
+                        }
+                    }
+                }
+            }
+
+            ).build()
         }
 
     }

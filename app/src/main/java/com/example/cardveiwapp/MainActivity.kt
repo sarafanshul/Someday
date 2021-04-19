@@ -104,12 +104,13 @@ class MainActivity : AppCompatActivity() {
 
 	// updates the data
 	fun updateAdapter(newData: CardData ) : Unit{
-		if( adapter.cur_data[POSITION] == newData ) return
 		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
+		adapter.cur_data[POSITION].subtitle = newData.subtitle
 		adapter.notifyItemChanged( POSITION )
 		cardViewModel.updateCard( adapter.cur_data[POSITION] )
 	}
 
+	// depriciated !
 	private fun createDataDefault( ) {
 		var _card_data = PREPOPULATE_DATA
 

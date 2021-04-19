@@ -11,11 +11,23 @@ Main Screen App Layout
 
 </details>
 
+- <details><summary>Show</summary>
+
+	[![prototype 1](/app_images/preview_v_1d.png "prototype 1d")](/app_images/preview_v_1d.png "prototype 1d")
+
+</details>
+
 Second Activity Layout
 
 - <details><summary>Show</summary>
 
 	[![prototype 2](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
+
+</details>
+
+- <details><summary>Show</summary>
+
+	[![prototype 2](/app_images/preview_v_9d.png "prototype 9d")](/app_images/preview_v_9d.png "prototype 9d")
 
 </details>
 
@@ -27,6 +39,11 @@ Input Task Layout
 
 </details>
 
+- <details><summary>Show</summary>
+
+	[![prototype 3](/app_images/preview_v_8d.png "prototype 8d")](/app_images/preview_v_8d.png "prototype 3")
+
+</details>
 
 ## Log
 - Date - 16-04-21
