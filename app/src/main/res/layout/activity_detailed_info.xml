@@ -19,12 +19,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/activity_detailed_info_tv_subtask"
+        android:layout_width="match_parent"
+        android:layout_marginTop="18dp"
+        android:layout_height="50dp"
+        android:gravity="right"
+        android:layout_marginRight="20dp"
+        android:paddingTop="8dp"
+        android:text="@string/app_name"
+        android:textStyle="italic|bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_detailed_info_tw_heading" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_detailed_info_rv_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_detailed_info_tw_heading"
+
+        app:layout_constraintTop_toBottomOf="@+id/activity_detailed_info_tv_subtask"
         tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

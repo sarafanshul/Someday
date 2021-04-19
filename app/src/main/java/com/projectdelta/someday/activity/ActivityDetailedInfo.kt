@@ -48,6 +48,7 @@ class ActivityDetailedInfo : AppCompatActivity() {
 
 		taskViewModel.getDataById( title ).observe( this , androidx.lifecycle.Observer {cardData ->
 			adapter.setData( cardData )
+			activity_detailed_info_tv_subtask.text = cardData.subtitle
 		} )
 
 
