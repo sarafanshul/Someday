@@ -37,18 +37,18 @@ class MainActivity : AppCompatActivity() {
 
 		setContentView(R.layout.activity_main)
 
-		// Recycler View
-//		val _card_data = createDataDefault()
+		// Recycler View Adapter
 		adapter = RecyclerViewCardAdapter()
 		main_rv_main.adapter = adapter
 		main_rv_main.layoutManager = LinearLayoutManager( this )
 
+		// sets up live data for Recycler View
 		cardViewModel.getAllData.observe( this , androidx.lifecycle.Observer {cardData ->
 			adapter.setData( cardData )
 			}
 		)
 
-		// onClick Listenr for Recycler View
+		// onClick Listener for Recycler View
 		main_rv_main.addOnItemTouchListener(
 			RecyclerItemClickListenr(
 				this,
@@ -85,25 +85,27 @@ class MainActivity : AppCompatActivity() {
 								}
 							}.setNegativeButton("CANCEL") { _, _ ->
 							}.create()
-//
 						_displayTextAlertDialog.show()
 					} // Changes Subtext
-				})
+
+				}
+			)
 		)
 	}
 
-	// Starts Activity from RecyclerView(short press)
+	// Starts 2nd Activity from RecyclerView(short press)
 	private val SECOND_ACTIVITY_REQUEST_CODE = 0
 	private fun itemOnClickRecyclerView( context : Context , position: Int ) : Unit {
 		val curData = adapter.cur_data[position]
 		POSITION = position
 		Intent( context , ActivityDetailedInfo::class.java ).also{
 			it.putExtra( "DATA" , curData )
-			startActivityForResult( it , SECOND_ACTIVITY_REQUEST_CODE )
+			startActivity( it )
+//			startActivityForResult( it , SECOND_ACTIVITY_REQUEST_CODE )
 		}
 	}
 
-	// This method is called when the second activity finishes
+	// This method is called when the second activity finishes (depriciated , moved to DAO )
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		// Check that it is the SecondActivity with an OK result
@@ -111,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 			if( resultCode == Activity.RESULT_OK ){
 				val new_curData = data!!.getSerializableExtra("NEWDATA") as CardData
 				Log.d( "New Data", new_curData.toString() )
-				updateAdapter( new_curData )
+//				updateAdapter( new_curData )
 			}
 		}
 
@@ -125,14 +127,9 @@ class MainActivity : AppCompatActivity() {
 		cardViewModel.updateCard( adapter.cur_data[POSITION] )
 	}
 
-	// depriciated !
-	private fun createDataDefault( ) {
-		var _card_data = PREPOPULATE_DATA
-
-		_card_data.forEach {
-			cardViewModel.insertOrUpdate( it )
-		}
-
+	// implement onDestory function for persistence
+	override fun onDestroy() {
+		super.onDestroy()
+//		cardViewModel.getAllData.value = adapter.cur_data
 	}
-
 }

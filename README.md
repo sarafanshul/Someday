@@ -118,6 +118,12 @@ Input Task Layout
 	- Database Updates But only from main Activity
 	- Today on Top does not work , replaced with today Highlighted or more Width ?
 	- Repository and View Models Extended
+
+- Date - 19=04-21
+	- Basic MVVM Model Implemented
+	- Delete Works
+	- So do Update
+	- ViewModel for activity 2 "done"
 	
 ## TODO
 ### Important
@@ -131,10 +137,11 @@ Input Task Layout
 -	~~Add Swipe To Delete and Undo~~
 -	~~fixed Snackbar overlap to FAB~~
 -	~~Added Title Divider~~
--	Implement Database
--	Pre-Populate Database (not HardCoded)
+-	~~Implement Database(Stage 1)~~
+-	~~Pre-Populate Database (not HardCoded)~~
 -	ViewModel Implementation
-
+-	Functionality to Nuke Database (Start Fresh)
+-	Ordering based on Priority
 
 ### Sub-Important
 -	Long Press Expands Card Height

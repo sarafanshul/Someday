@@ -19,11 +19,12 @@ class SwipeToDelete(
 		return false // because dragDirs : 0 (only Left , Right)
 	}
 
+	// called when swiped
 	override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//		var pos = viewHolder.adapterPosition // pass viewHolder for context
 		adapter.deleteItem( viewHolder )
 	}
 
+	// for Child Draw
 	private lateinit var deleteIcon : Drawable
 	private var swipeBackground : ColorDrawable = ColorDrawable( Color.parseColor( "#CA0B00" ) )
 	override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {

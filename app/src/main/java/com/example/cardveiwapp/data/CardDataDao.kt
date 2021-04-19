@@ -1,6 +1,7 @@
 package com.example.cardveiwapp.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.cardveiwapp.data.CardData
 
@@ -13,7 +14,7 @@ interface CardDataDao {
     fun getAll(): LiveData<List<CardData>>
 
     @Query( "SELECT * FROM CardData WHERE title = :titleCardData " )
-    suspend fun getDataById( titleCardData : String) : CardData
+    fun getDataById( titleCardData : String) : LiveData<CardData>
 
     @Delete
     suspend fun deleteData( data: CardData)

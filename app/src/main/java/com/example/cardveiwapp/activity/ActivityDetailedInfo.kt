@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardveiwapp.R
 import com.example.cardveiwapp.adapters.RecyclerViewTasksAdapter
 import com.example.cardveiwapp.data.CardData
+import com.example.cardveiwapp.viewModels.TaskViewModel
 import com.example.cardveiwapp.utils.SwipeToDelete
-import com.example.cardveiwapp.viewModels.CardViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info.*
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_detailed_info.*
 class ActivityDetailedInfo : AppCompatActivity() {
 
 	lateinit var adapter: RecyclerViewTasksAdapter
-	private lateinit var cardViewModel : CardViewModel
+	private lateinit var taskViewModel : TaskViewModel
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -31,31 +31,29 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		// Splash Screen
 		setTheme(R.style.Theme_CardVeiwApp)
 
-		cardViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CardViewModel::class.java )
+		taskViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( TaskViewModel::class.java )
 
 		setContentView(R.layout.activity_detailed_info)
 
 		// Data form Main Activity
 		val curData = intent.getSerializableExtra("DATA") as CardData
 
-		// Copy of Data
-		var tasksData = curData.tasks
+		// for database Querying
+		val title = curData.title
 		activity_detailed_info_tw_heading.text = curData.title
 
-		// Activite-2 recycler view adapter
-		adapter =
-			RecyclerViewTasksAdapter(tasksData)
+
+		// Activity - 2 recycler view adapter
+		adapter = RecyclerViewTasksAdapter()
 		activity_detailed_info_rv_main.adapter = adapter
 		activity_detailed_info_rv_main.layoutManager = LinearLayoutManager(this)
 
-		fun updateTask( newTask : String ) : Unit {
-			Snackbar.make( activity_detailed_info_rv_main , "${newTask} Added !" , Snackbar.LENGTH_LONG).apply{
-				anchorView = activity_detailed_info_efab_add
-			}.show() // for SnackBar Above the Create Button
-			tasksData.add( newTask )
-			adapter.notifyItemChanged( adapter.itemCount )
-		}
+		taskViewModel.getDataById( title ).observe( this , androidx.lifecycle.Observer {cardData ->
+			adapter.setData( cardData )
+		} )
 
+
+		// Helper util for Swipe to Delete
 		var itemTouchHelper = ItemTouchHelper(
 			SwipeToDelete(
 				adapter
@@ -63,7 +61,7 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		)
 		itemTouchHelper.attachToRecyclerView( activity_detailed_info_rv_main )
 
-		// alert dialog for fab
+		// alert dialog for FAB
 		activity_detailed_info_efab_add.setOnClickListener {
 			val _dialogLayout = layoutInflater.inflate(R.layout.activity_detailed_info_alert_dialog, null)
 			var alert_et = _dialogLayout.findViewById<EditText>(R.id.activity_detailed_info_alert_dialog_et_main)
@@ -81,13 +79,32 @@ class ActivityDetailedInfo : AppCompatActivity() {
 			_displayTextAlertDialog.window?.setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE )
 			_displayTextAlertDialog.show()
 		}
+	}
 
-		curData.tasks = tasksData
+	// Updates Task
+	fun updateTask( newTask : String ) : Unit {
+		Snackbar.make( activity_detailed_info_rv_main , "${newTask} Added !" , Snackbar.LENGTH_LONG).apply{
+			anchorView = activity_detailed_info_efab_add
+		}.show() // for SnackBar Above the Create Button
+		adapter.cardData.tasks.add( newTask )
+		taskViewModel.updateCard( adapter.cardData )
+		adapter.notifyItemChanged( adapter.itemCount )
+	}
 
-		// return of startActivityForResult
-		val returnIntent = Intent()
-		returnIntent.putExtra( "NEWDATA" , curData )
-		setResult( Activity.RESULT_OK , returnIntent )
+	override fun onPause() {
+		super.onPause()
+		taskViewModel.updateCard( adapter.cardData )
+	}
+
+	override fun onStop() {
+		super.onStop()
+		taskViewModel.updateCard( adapter.cardData )
+
+	}
+
+	override fun onDestroy() {
+		super.onDestroy()
+		taskViewModel.updateCard( adapter.cardData )
 	}
 
 }
