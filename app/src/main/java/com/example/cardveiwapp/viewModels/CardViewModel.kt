@@ -1,4 +1,4 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.viewModels
 
 // https://www.youtube.com/watch?v=lwAvI3WDXBY
 
@@ -6,6 +6,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.cardveiwapp.repository.CardDataRepository
+import com.example.cardveiwapp.data.AppDatabase
+import com.example.cardveiwapp.data.CardData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -18,7 +21,8 @@ class CardViewModel(
 
     init {
         val cardDataDao = AppDatabase.getDatabase(application).cardDataDao()
-        repository = CardDataRepository(cardDataDao)
+        repository =
+            CardDataRepository(cardDataDao)
         getAllData = repository.getAllData
     }
 
@@ -28,7 +32,7 @@ class CardViewModel(
         }
     }
 
-    fun updateCard( cardData: CardData ){
+    fun updateCard( cardData: CardData){
         viewModelScope.launch ( Dispatchers.IO ){
             repository.updateCard( cardData )
         }

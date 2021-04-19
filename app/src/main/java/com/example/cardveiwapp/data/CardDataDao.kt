@@ -1,7 +1,8 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.cardveiwapp.data.CardData
 
 // use suspend functions
 
@@ -15,10 +16,10 @@ interface CardDataDao {
     suspend fun getDataById( titleCardData : String) : CardData
 
     @Delete
-    suspend fun deleteData( data: CardData )
+    suspend fun deleteData( data: CardData)
 
     @Insert( onConflict = OnConflictStrategy.REPLACE )
-    suspend fun insertOrUpdate( data: CardData )
+    suspend fun insertOrUpdate( data: CardData)
 
     @Insert
     fun insertData(data: List<CardData>)

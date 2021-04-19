@@ -1,21 +1,19 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.activity
 
-import android.app.ActionBar
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.EditText
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.cardveiwapp.R
+import com.example.cardveiwapp.adapters.RecyclerViewTasksAdapter
+import com.example.cardveiwapp.data.CardData
+import com.example.cardveiwapp.utils.SwipeToDelete
+import com.example.cardveiwapp.viewModels.CardViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info.*
@@ -31,7 +29,7 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 
 		// Splash Screen
-		setTheme( R.style.Theme_CardVeiwApp )
+		setTheme(R.style.Theme_CardVeiwApp)
 
 		cardViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CardViewModel::class.java )
 
@@ -45,7 +43,8 @@ class ActivityDetailedInfo : AppCompatActivity() {
 		activity_detailed_info_tw_heading.text = curData.title
 
 		// Activite-2 recycler view adapter
-		adapter = RecyclerViewTasksAdapter( tasksData )
+		adapter =
+			RecyclerViewTasksAdapter(tasksData)
 		activity_detailed_info_rv_main.adapter = adapter
 		activity_detailed_info_rv_main.layoutManager = LinearLayoutManager(this)
 
@@ -57,13 +56,17 @@ class ActivityDetailedInfo : AppCompatActivity() {
 			adapter.notifyItemChanged( adapter.itemCount )
 		}
 
-		var itemTouchHelper = ItemTouchHelper( SwipeToDelete(adapter) )
+		var itemTouchHelper = ItemTouchHelper(
+			SwipeToDelete(
+				adapter
+			)
+		)
 		itemTouchHelper.attachToRecyclerView( activity_detailed_info_rv_main )
 
 		// alert dialog for fab
 		activity_detailed_info_efab_add.setOnClickListener {
-			val _dialogLayout = layoutInflater.inflate( R.layout.activity_detailed_info_alert_dialog , null)
-			var alert_et = _dialogLayout.findViewById<EditText>( R.id.activity_detailed_info_alert_dialog_et_main )
+			val _dialogLayout = layoutInflater.inflate(R.layout.activity_detailed_info_alert_dialog, null)
+			var alert_et = _dialogLayout.findViewById<EditText>(R.id.activity_detailed_info_alert_dialog_et_main)
 			alert_et.hint = "Here !"
 			val _displayTextAlertDialog = MaterialAlertDialogBuilder( this )
 				.setTitle("New Task ?")

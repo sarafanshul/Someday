@@ -1,4 +1,4 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.utils
 
 // https://gist.github.com/florina-muntenescu/697e543652b03d3d2a06703f5d6b44b5
 // for io Thread

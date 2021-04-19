@@ -1,11 +1,12 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cardveiwapp.R
+import com.example.cardveiwapp.data.CardData
 import kotlinx.android.synthetic.main.recycler_cardview.view.*
 import java.util.*
 
@@ -15,7 +16,7 @@ class RecyclerViewCardAdapter( ) : RecyclerView.Adapter<RecyclerViewCardAdapter.
     inner class CardViewHolder( itemView : View ) : RecyclerView.ViewHolder( itemView )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val _view = LayoutInflater.from( parent.context ).inflate( R.layout.recycler_cardview , parent , false )
+        val _view = LayoutInflater.from( parent.context ).inflate(R.layout.recycler_cardview, parent , false )
         return CardViewHolder( _view )
     }
 
@@ -26,7 +27,7 @@ class RecyclerViewCardAdapter( ) : RecyclerView.Adapter<RecyclerViewCardAdapter.
             recycler_cardview_tv_heading.text = cur_data[ position ].title
             recycler_cardview_tv_sub_heading.text = cur_data[ position ].subtitle
             recycler_cardview_tv_content.text = if(cur_data[ position ].tasks.size > 0) cur_data[ position ].tasks[ 0 ] else "Every Thing Done !!"
-            recycler_cardview_ll_main1.background = resources.obtainTypedArray( R.array.bg_colors ).getDrawable( cur_data[ position ]._color )
+            recycler_cardview_ll_main1.background = resources.obtainTypedArray(R.array.bg_colors).getDrawable( cur_data[ position ]._color )
 
             // Highlight Current Day Because sort dose NOT work
             if( Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == cur_data[position]._color + 1 ){

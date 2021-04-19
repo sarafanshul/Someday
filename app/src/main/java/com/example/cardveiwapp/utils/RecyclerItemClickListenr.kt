@@ -1,4 +1,4 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.utils
 
 import android.content.Context
 import android.view.GestureDetector

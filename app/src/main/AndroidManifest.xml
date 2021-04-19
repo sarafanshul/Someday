@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_main_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/splashScreenTheme">
-        <activity android:name=".ActivityDetailedInfo"></activity>
+        <activity android:name=".activity.ActivityDetailedInfo"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

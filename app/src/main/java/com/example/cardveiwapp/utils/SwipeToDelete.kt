@@ -1,6 +1,5 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.utils
 
-import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,6 +7,8 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cardveiwapp.R
+import com.example.cardveiwapp.adapters.RecyclerViewTasksAdapter
 
 // https://www.youtube.com/watch?v=eEonjkmox-0
 class SwipeToDelete(
@@ -28,7 +29,9 @@ class SwipeToDelete(
 	override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
 
 		val itemView = viewHolder.itemView
-		deleteIcon = ContextCompat.getDrawable( recyclerView.context , R.drawable.ic_delete_white_24dp )!!
+		deleteIcon = ContextCompat.getDrawable( recyclerView.context ,
+            R.drawable.ic_delete_white_24dp
+        )!!
 		val iconMargin = ( itemView.height - deleteIcon.intrinsicHeight ) / 2
 
 

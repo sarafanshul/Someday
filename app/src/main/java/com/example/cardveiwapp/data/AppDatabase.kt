@@ -1,12 +1,14 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.data
 
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import android.content.Context
-import android.util.Log
 import androidx.room.TypeConverters
+import com.example.cardveiwapp.constant.DATABASE_NAME
+import com.example.cardveiwapp.constant.PREPOPULATE_DATA
+import com.example.cardveiwapp.utils.Converters
 import java.util.concurrent.Executors
 
 @Database(
@@ -25,12 +27,16 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if( tempInstance != null )
                 return tempInstance
 
             synchronized(this){
-                val instance = buildDatabase( context )
+                val instance =
+                    buildDatabase(
+                        context
+                    )
 //                val instance = Room.databaseBuilder(
 //                    context.applicationContext ,
 //                    AppDatabase::class.java ,
@@ -52,7 +58,7 @@ abstract class AppDatabase : RoomDatabase() {
                     // pre-populate data
                     Executors.newSingleThreadExecutor().execute {
                         INSTANCE?.let {
-                            it.cardDataDao().insertData( PREPOPULATE_DATA )
+                            it.cardDataDao().insertData(PREPOPULATE_DATA)
                         }
                     }
                 }

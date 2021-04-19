@@ -1,9 +1,9 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
+import com.example.cardveiwapp.utils.Converters
 import java.io.Serializable
 
 
@@ -20,5 +20,5 @@ data class CardData (
     @TypeConverters( Converters::class )
     var tasks : MutableList<String> = mutableListOf() ,
 
-    var _color : Int = ( color_num++ )%( _size )
+    var _color : Int = ( color_num++ )%(_size)
 ) : Serializable

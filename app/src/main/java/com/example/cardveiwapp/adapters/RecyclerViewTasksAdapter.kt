@@ -1,13 +1,11 @@
-package com.example.cardveiwapp
+package com.example.cardveiwapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.cardveiwapp.R
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_detailed_info.*
 import kotlinx.android.synthetic.main.activity_detailed_info_recycler_view.view.*
 
 class RecyclerViewTasksAdapter(
@@ -17,7 +15,7 @@ class RecyclerViewTasksAdapter(
     inner class TasksViewHolder( itemView : View) : RecyclerView.ViewHolder( itemView )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
-        val _view = LayoutInflater.from( parent.context ).inflate( R.layout.activity_detailed_info_recycler_view , parent , false )
+        val _view = LayoutInflater.from( parent.context ).inflate(R.layout.activity_detailed_info_recycler_view, parent , false )
         return TasksViewHolder( _view )
     }
 
