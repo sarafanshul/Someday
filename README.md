@@ -1,5 +1,13 @@
-# Weekday Plannar
-This app use Recycler View and Card View at Core for card management
+# Someday
+App to manage Weekly tasks
+Because  who needs to remind you every week to do Samething
+
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+
+[![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Kotlin-1f425f.svg)](https://kotlinlang.org/)
+
+[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
+
 
 ## Preview
 
@@ -45,111 +53,11 @@ Input Task Layout
 
 </details>
 
-## Log
-- Date - 16-04-21
-	- start from base , colors and cards are working fine
-	- <details><summary>Preview 1</summary>
 
-		[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
+## Try it out Yourself 
+<a id="raw-url" href="https://raw.githubusercontent.com/github-sarafanshul/CardVeiwApp/app/release/app-release.apk">Download FILE</a>
 
-	</details>
 
-	- added onclick listenr for recycler view
-	- Fragment View in Recycler View seems "Hard" to implement 
-	- added current weekday rotate support
-	- <details><summary>Preview 2</summary>
+![Maintaner](https://img.shields.io/badge/maintainer-Anshul Saraf-Green)
 
-		[![prototype 2](/app_images/preview_v_2.png "prototype 2")](/app_images/preview_v_2.png "prototype 2")
-
-	</details>
-	
-	- Shift from Fragment to Activity Done
-	- Data comes Back from new Activity and updates the recyclerView Adapter
-
-- Date - 17-04-21
-	- Added RecyclerView in Second Activity
-	- Data Updates works "Smoothly"
-	- Alert Dialog for data update implemented
-	- <details><summary>Preview 3</summary>
-
-		[![prototype 3](/app_images/preview_v_3.png "prototype 3")](/app_images/preview_v_3.png "prototype 3")
-
-	</details>
-	
-	- Added Swipe to Delete with Undo SnackBar
-	- <details><summary>Preview 4</summary>
-
-		[![prototype 4](/app_images/preview_v_4.png "prototype 4")](/app_images/preview_v_4.png "prototype 4")
-
-	</details>
-	
-	- Added red Color and Delete Icon in Swipe To Delete
-	- <details><summary>Preview 5</summary>
-
-		[![prototype 5](/app_images/preview_v_5.png "prototype 5")](/app_images/preview_v_5.png "prototype 5")
-
-	</details>
-	
-	- replaced Toasts to SnackBar 
-	- replaced *Round Button to [FAB](https://material.io/develop/android/components/floating-action-button)
-	- fixed Snackbar overlap to FAB
-	- Good Gradients added and Icons and Theme Colors
-	- Added Title Divider using styles
-	- <details><summary>Preview 7</summary>
-
-		[![prototype 7](/app_images/preview_v_7.png "prototype 7")](/app_images/preview_v_7.png "prototype 7")
-
-	</details>
-	
-	- Added red Color and Delete Icon in Swipe To Delete
-	- Changed CardView to Material TextView in RecyclerView - 2
-	- Alert Dialog to Material IO AlertDialog
-	- <details><summary>Preview 9</summary>
-
-		[![prototype 9](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
-
-	</details>
-
-- Date - 18-04-21
-	- Added Splash Screen
-	- Long Click to Change Subtext
-	- Database Model and View Model added with Live Updates
-	- insertOrUpdate seems to work on IO thread
-	- Database Updates But only from main Activity
-	- Today on Top does not work , replaced with today Highlighted or more Width ?
-	- Repository and View Models Extended
-
-- Date - 19=04-21
-	- Basic MVVM Model Implemented
-	- Delete Works
-	- So do Update
-	- ViewModel for activity 2 "done"
-	
-## TODO
-### Important
--	~~Implemnt CardView in Recycler View~~
--	~~Implement layout Structure~~
--	~~Implemnt ItemOnclick in Recycler View~~
--	~~Shift from Fragment to Activity~~
--	~~RecyclerView in Second Activity for displaying Tasks~~
--	~~AlertDialog for "Round Button"~~
--	~~Delete Items from List and Update~~
--	~~Add Swipe To Delete and Undo~~
--	~~fixed Snackbar overlap to FAB~~
--	~~Added Title Divider~~
--	~~Implement Database(Stage 1)~~
--	~~Pre-Populate Database (not HardCoded)~~
--	ViewModel Implementation
--	Functionality to Nuke Database (Start Fresh)
--	Ordering based on Priority
-
-### Sub-Important
--	Long Press Expands Card Height
--	~~Padding/Margin~~ 
--	~~Highlight the current day~~
--	Good Gradients 
--	~~Round Button~~
--	~~Good CheckBox~~
--	~~App Icon~~
--	Fonts
--	Today on Top
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
