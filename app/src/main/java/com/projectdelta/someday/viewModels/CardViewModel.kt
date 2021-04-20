@@ -18,6 +18,7 @@ class CardViewModel(
 
     val getAllData : LiveData<List<CardData>>
     val getAllByOrder : LiveData<List<CardData>>
+    val today : LiveData<CardData>
     private val repository : CardDataRepository
 
     init {
@@ -26,6 +27,7 @@ class CardViewModel(
             CardDataRepository(cardDataDao)
         getAllData = repository.getAllData
         getAllByOrder = repository.getAllByOrder
+        today = repository.getToday
     }
 
     fun insertOrUpdate(cardData: CardData){

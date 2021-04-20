@@ -80,9 +80,14 @@
 	- ViewModel for activity 2 "done"
 
 - Date - 20-04-21
-	- Right swipe for "Nest Week" Added
+	- Right swipe for "Next Week" Added
 	- Recycler View Ordering Adjusting by Customizing DB Queries 
 	- Implementation for change in subtext from inside added
+	- Swipible Menu added with settings and other options
+	- Shared Prefrences to Store Settings Data
+	- Notification Class Implemented
+	- Support toggle for removing notifications
+
 	
 ## TODO
 ### Important
@@ -98,20 +103,20 @@
 -	~~Added Title Divider~~
 -	~~Implement Database(Stage 1)~~
 -	~~Pre-Populate Database (not HardCoded)~~
--	ViewModel Implementation
+-	~~ViewModel Implementation~~
 -	Functionality to Nuke Database (Start Fresh)
 -	Ordering based on Priority
--	Notifications
+-	Notification Bugs 
 -	Reset Option
 
 ### Sub-Important
 -	Long Press Expands Card Height
 -	~~Padding/Margin~~ 
 -	~~Highlight the current day~~
--	Good Gradients 
+-	~~Good Gradients~~ 
 -	~~Round Button~~
 -	~~Good CheckBox~~
 -	~~App Icon~~
 -	Fonts
 -	~~Today on Top~~
--	Credits
+-	~~Credits~~

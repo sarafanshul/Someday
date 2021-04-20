@@ -1,15 +1,24 @@
 package com.projectdelta.someday
 
 import android.app.Activity
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.projectdelta.someday.activity.ActivityDetailedInfo
 import com.projectdelta.someday.adapters.RecyclerViewCardAdapter
@@ -18,6 +27,9 @@ import com.projectdelta.someday.utils.RecyclerItemClickListenr
 import com.projectdelta.someday.viewModels.CardViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.projectdelta.someday.activity.SettingsActivity
+import com.projectdelta.someday.fragment.SettingsFragment
+import com.projectdelta.someday.utils.CreateNotification
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var cardViewModel: CardViewModel
 	lateinit var toggle : ActionBarDrawerToggle
 	private var POSITION = 0
-
+	private val CHANNEL_ID = "channelID"
+	private val CHANNEL_NAME = "channelNAME"
+	private val NOTIFICATION_ID = 0
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -39,6 +53,15 @@ class MainActivity : AppCompatActivity() {
 
 		setContentView(R.layout.activity_main)
 
+		// create notification channel
+		val notificationAdapter =  CreateNotification()
+		notificationAdapter.createNotificationChannel(this)
+
+		// create notification
+		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+		cardViewModel.today.observe(this ,androidx.lifecycle.Observer { cardData -> notificationAdapter.setToday( cardData ) })
+		if( sharedPreferences.getBoolean("notifications" , false ) )
+//			notificationAdapter.newNotification(this , NOTIFICATION_ID )
 
 		// Slider Menu
 		toggle = ActionBarDrawerToggle(this , main_drawer_main , R.string.open , R.string.close )
@@ -47,11 +70,12 @@ class MainActivity : AppCompatActivity() {
 
 		supportActionBar?.setDisplayHomeAsUpEnabled( true )
 
+		// nav menu on item click listner
 		main_nav_view.setNavigationItemSelectedListener {
 			when( it.itemId ){
-				R.id.main_menu_settings -> Snackbar.make( main_cl_main , "Clicked Settings" , Snackbar.LENGTH_LONG ).show()
-				R.id.main_menu_credits -> Snackbar.make( main_cl_main , "Clicked Credits" , Snackbar.LENGTH_LONG ).show()
-				R.id.main_menu_feedback -> Snackbar.make( main_cl_main , "Clicked Feedback" , Snackbar.LENGTH_LONG ).show()
+				R.id.main_menu_settings -> goSettings( this )
+				R.id.main_menu_credits -> goSettings( this )
+				R.id.main_menu_feedback -> goSettings( this )
 			}
 			true
 		}
@@ -110,10 +134,11 @@ class MainActivity : AppCompatActivity() {
 				}
 			)
 		)
+
 	}
 
 	// Starts 2nd Activity from RecyclerView(short press)
-	private val SECOND_ACTIVITY_REQUEST_CODE = 0
+	private val SETTING_REQUEST_CODE = 100
 	private fun itemOnClickRecyclerView( context : Context , position: Int ) : Unit {
 		val curData = adapter.cur_data[position]
 		POSITION = position
@@ -128,11 +153,9 @@ class MainActivity : AppCompatActivity() {
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		// Check that it is the SecondActivity with an OK result
-		if(requestCode == SECOND_ACTIVITY_REQUEST_CODE ){
+		if(requestCode == SETTING_REQUEST_CODE ){
 			if( resultCode == Activity.RESULT_OK ){
-				val new_curData = data!!.getSerializableExtra("NEWDATA") as CardData
-//				Log.d( "New Data", new_curData.toString() )
-//				updateAdapter( new_curData )
+
 			}
 		}
 
@@ -152,6 +175,19 @@ class MainActivity : AppCompatActivity() {
 		cardViewModel.updateCard( adapter.cur_data[POSITION] )
 	}
 
+	fun goSettings( context: Context ){
+		Intent( context , SettingsActivity::class.java ).also{
+			startActivityForResult( it , SETTING_REQUEST_CODE)
+		}
+	}
+
+	fun goCredits( view: View ){
+
+	}
+
+	fun goFeedback( view: View ){
+
+	}
 
 	// implement onDestory function for persistence
 	override fun onDestroy() {

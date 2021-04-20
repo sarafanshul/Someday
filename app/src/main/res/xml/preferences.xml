@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="pref_cat_notification"
+        android:title ="Notifications">
+
+        <SwitchPreferenceCompat
+            android:key = "pref_switch_notifications"
+            android:title = "Enable message notifications"
+            android:summary="Alzheimer's Mode ?"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_cat_data"
+        android:title="My Data">
+
+        <Preference
+            android:key="pref_data"
+            android:title="Start fresh"
+            android:summary="Clear all my user data and reset app"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_cat_feedback"
+        android:title="Help \u0026 Feedback">
+
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

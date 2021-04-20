@@ -7,6 +7,9 @@ const val DATABASE_NAME = "card-db"
 
 val DAY_VALUE = Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 1
 
+val CHANNEL_ID = "channelID"
+val CHANNEL_NAME = "channelNAME"
+
 val PREPOPULATE_DATA = mutableListOf(
     CardData("Sunday", " ", mutableListOf()),
     CardData("Monday", " ", mutableListOf()),
