@@ -49,4 +49,15 @@ class RecyclerViewTasksAdapter( ) : RecyclerView.Adapter<RecyclerViewTasksAdapte
             anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_efab_add) // for on top of efab
         }.show()
     }
+
+    fun moveToLast( viewHolder: RecyclerView.ViewHolder ) : Unit {
+        removed_pos = viewHolder.adapterPosition
+        removed_item = cardData.tasks[ removed_pos ]
+        cardData.tasks.removeAt( removed_pos )
+        cardData.tasks.add( removed_item )
+        notifyDataSetChanged()
+        Snackbar.make( viewHolder.itemView , "$removed_item Added at Last For Next Week" ,Snackbar.LENGTH_LONG ).apply {
+            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_efab_add) // for on top of efab
+        }.show()
+    }
 }

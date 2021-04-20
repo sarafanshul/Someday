@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 		main_rv_main.layoutManager = LinearLayoutManager( this )
 
 		// sets up live data for Recycler View
-		cardViewModel.getAllData.observe( this , androidx.lifecycle.Observer {cardData ->
+		cardViewModel.getAllByOrder.observe( this , androidx.lifecycle.Observer {cardData ->
 			adapter.setData( cardData )
 			}
 		)

@@ -30,11 +30,11 @@ class RecyclerViewCardAdapter( ) : RecyclerView.Adapter<RecyclerViewCardAdapter.
             recycler_cardview_ll_main1.background = resources.obtainTypedArray(R.array.bg_colors).getDrawable( cur_data[ position ]._color )
 
             // Highlight Current Day Because sort dose NOT work
-            if( Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == cur_data[position]._color + 1 ){
-//                Log.d("CALLED VALUE" , cur_data[position].toString() )
-                recycler_cardview_cv_1.strokeWidth = resources.getDimension(R.dimen.card_stroke_width).toInt()
-                recycler_cardview_cv_1.strokeColor = resources.getColor(R.color.neon_green)
-            }
+//            if( Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == cur_data[position]._color + 1 ){
+////                Log.d("CALLED VALUE" , cur_data[position].toString() )
+//                recycler_cardview_cv_1.strokeWidth = resources.getDimension(R.dimen.card_stroke_width).toInt()
+//                recycler_cardview_cv_1.strokeColor = resources.getColor(R.color.neon_green)
+//            }
 //            Log.d( "POSITION CALLED" , Calendar.getInstance().get(Calendar.DAY_OF_WEEK).toString() )
 //            Log.d("Who Called for" , cur_data[position].toString() )
         }

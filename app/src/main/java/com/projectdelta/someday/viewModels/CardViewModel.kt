@@ -17,6 +17,7 @@ class CardViewModel(
 ) : AndroidViewModel( application ) {
 
     val getAllData : LiveData<List<CardData>>
+    val getAllByOrder : LiveData<List<CardData>>
     private val repository : CardDataRepository
 
     init {
@@ -24,6 +25,7 @@ class CardViewModel(
         repository =
             CardDataRepository(cardDataDao)
         getAllData = repository.getAllData
+        getAllByOrder = repository.getAllByOrder
     }
 
     fun insertOrUpdate(cardData: CardData){

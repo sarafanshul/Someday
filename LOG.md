@@ -73,11 +73,16 @@
 	- Today on Top does not work , replaced with today Highlighted or more Width ?
 	- Repository and View Models Extended
 
-- Date - 19=04-21
+- Date - 19-04-21
 	- Basic MVVM Model Implemented
 	- Delete Works
 	- So do Update
 	- ViewModel for activity 2 "done"
+
+- Date - 20-04-21
+	- Right swipe for "Nest Week" Added
+	- Recycler View Ordering Adjusting by Customizing DB Queries 
+	- Implementation for change in subtext from inside added
 	
 ## TODO
 ### Important
@@ -96,6 +101,8 @@
 -	ViewModel Implementation
 -	Functionality to Nuke Database (Start Fresh)
 -	Ordering based on Priority
+-	Notifications
+-	Reset Option
 
 ### Sub-Important
 -	Long Press Expands Card Height
@@ -106,4 +113,5 @@
 -	~~Good CheckBox~~
 -	~~App Icon~~
 -	Fonts
--	Today on Top
+-	~~Today on Top~~
+-	Credits
