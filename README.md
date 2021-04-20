@@ -1,5 +1,6 @@
 # Someday
 App to manage Weekly tasks
+
 Because  who needs to remind you every week to do Samething
 
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
@@ -55,9 +56,9 @@ Input Task Layout
 
 
 ## Try it out Yourself 
-<a id="raw-url" href="https://raw.githubusercontent.com/github-sarafanshul/CardVeiwApp/app/release/app-release.apk">Download FILE</a>
+<a href="https://github.com/sarafanshul/CardViewApp/raw/master/app/release/app-release.apk" download>Click to Download</a>
 
 
-![Maintaner](https://img.shields.io/badge/maintainer-Anshul Saraf-Green)
+![Maintaner](https://img.shields.io/badge/maintainer-AnshulSaraf-Green)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
