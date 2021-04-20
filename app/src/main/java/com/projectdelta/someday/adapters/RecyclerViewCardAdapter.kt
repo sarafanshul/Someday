@@ -28,30 +28,12 @@ class RecyclerViewCardAdapter( ) : RecyclerView.Adapter<RecyclerViewCardAdapter.
             recycler_cardview_tv_sub_heading.text = cur_data[ position ].subtitle
             recycler_cardview_tv_content.text = if(cur_data[ position ].tasks.size > 0) cur_data[ position ].tasks[ 0 ] else "Every Thing Done !!"
             recycler_cardview_ll_main1.background = resources.obtainTypedArray(R.array.bg_colors).getDrawable( cur_data[ position ]._color )
-
-            // Highlight Current Day Because sort dose NOT work
-//            if( Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == cur_data[position]._color + 1 ){
-////                Log.d("CALLED VALUE" , cur_data[position].toString() )
-//                recycler_cardview_cv_1.strokeWidth = resources.getDimension(R.dimen.card_stroke_width).toInt()
-//                recycler_cardview_cv_1.strokeColor = resources.getColor(R.color.neon_green)
-//            }
-//            Log.d( "POSITION CALLED" , Calendar.getInstance().get(Calendar.DAY_OF_WEEK).toString() )
-//            Log.d("Who Called for" , cur_data[position].toString() )
         }
     }
 
     fun setData( new_data : List<CardData> ){
         this.cur_data = new_data
         notifyDataSetChanged()
-    }
-
-     fun setTodayOnTop(FROM : String = "Sunday" ){
-        var temp = this.cur_data
-        temp.sortedWith( compareBy( { it._color } ) )
-         Log.d("Curr Data" , temp.toString())
-        val dateInfo = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
-        Collections.rotate( temp , -dateInfo + 1)
-        this.cur_data = temp
     }
 
 }

@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mat_black">#E6171717</color>
-    <color name="white_alpha">#D0F0F0FF</color>
+    <color name="white_alpha">#E6FFFFFF</color>
     <color name="neon_green">#39ff14</color>
 
 </resources>

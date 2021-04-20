@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="nav_header_color">@drawable/nav_header_light</item>
     </style>
     
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">

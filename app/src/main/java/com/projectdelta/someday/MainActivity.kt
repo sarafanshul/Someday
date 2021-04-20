@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.projectdelta.someday.activity.ActivityDetailedInfo
@@ -22,7 +24,9 @@ class MainActivity : AppCompatActivity() {
 
 	lateinit var adapter : RecyclerViewCardAdapter
 	private lateinit var cardViewModel: CardViewModel
+	lateinit var toggle : ActionBarDrawerToggle
 	private var POSITION = 0
+
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -34,6 +38,23 @@ class MainActivity : AppCompatActivity() {
 		cardViewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CardViewModel::class.java )
 
 		setContentView(R.layout.activity_main)
+
+
+		// Slider Menu
+		toggle = ActionBarDrawerToggle(this , main_drawer_main , R.string.open , R.string.close )
+		main_drawer_main.addDrawerListener( toggle )
+		toggle.syncState()
+
+		supportActionBar?.setDisplayHomeAsUpEnabled( true )
+
+		main_nav_view.setNavigationItemSelectedListener {
+			when( it.itemId ){
+				R.id.main_menu_settings -> Snackbar.make( main_cl_main , "Clicked Settings" , Snackbar.LENGTH_LONG ).show()
+				R.id.main_menu_credits -> Snackbar.make( main_cl_main , "Clicked Credits" , Snackbar.LENGTH_LONG ).show()
+				R.id.main_menu_feedback -> Snackbar.make( main_cl_main , "Clicked Feedback" , Snackbar.LENGTH_LONG ).show()
+			}
+			true
+		}
 
 		// Recycler View Adapter
 		adapter = RecyclerViewCardAdapter()
@@ -117,6 +138,12 @@ class MainActivity : AppCompatActivity() {
 
 	}
 
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		if ( toggle.onOptionsItemSelected(item) )
+			return true
+		return super.onOptionsItemSelected(item)
+	}
+
 	// updates the data
 	fun updateAdapter(newData: CardData) : Unit{
 		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
@@ -124,6 +151,7 @@ class MainActivity : AppCompatActivity() {
 		adapter.notifyItemChanged( POSITION )
 		cardViewModel.updateCard( adapter.cur_data[POSITION] )
 	}
+
 
 	// implement onDestory function for persistence
 	override fun onDestroy() {
