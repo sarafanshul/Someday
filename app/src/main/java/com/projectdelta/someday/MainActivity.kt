@@ -10,16 +10,23 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.AccelerateInterpolator
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.constraintlayout.solver.state.State
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.*
+import com.google.android.material.card.MaterialCardView
 import com.projectdelta.someday.activity.ActivityDetailedInfo
 import com.projectdelta.someday.adapters.RecyclerViewCardAdapter
 import com.projectdelta.someday.data.CardData
@@ -30,9 +37,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.projectdelta.someday.activity.SettingsActivity
 import com.projectdelta.someday.fragment.SettingsFragment
 import com.projectdelta.someday.utils.CreateNotification
+import com.projectdelta.someday.utils.NotificationWorker
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.recycler_cardview.view.*
+import java.util.concurrent.TimeUnit
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , SharedPreferences.OnSharedPreferenceChangeListener {
 
 	lateinit var adapter : RecyclerViewCardAdapter
 	private lateinit var cardViewModel: CardViewModel
@@ -41,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 	private val CHANNEL_ID = "channelID"
 	private val CHANNEL_NAME = "channelNAME"
 	private val NOTIFICATION_ID = 0
+	lateinit var today : CardData
+	lateinit var myWorkRequest : PeriodicWorkRequest
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -53,15 +65,30 @@ class MainActivity : AppCompatActivity() {
 
 		setContentView(R.layout.activity_main)
 
-		// create notification channel
-		val notificationAdapter =  CreateNotification()
-		notificationAdapter.createNotificationChannel(this)
+		myWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.HOURS)
+			.addTag("notificationWork")
+			.setInputData(
+				workDataOf(
+					"TODAY" to "Sunday"
+				)
+			)
+			.setConstraints(
+				Constraints.Builder()
+					.setRequiredNetworkType(NetworkType.UNMETERED) // Example
+					.build()
+			)
+			.build()
 
-		// create notification
 		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-		cardViewModel.today.observe(this ,androidx.lifecycle.Observer { cardData -> notificationAdapter.setToday( cardData ) })
-		if( sharedPreferences.getBoolean("notifications" , false ) )
-//			notificationAdapter.newNotification(this , NOTIFICATION_ID ) // TODO("notifications does not work")
+		if( sharedPreferences.getBoolean("notifications" , false ) ) {
+			Log.d( "WORKERBUILT" , "1" )
+			WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+				"periodicNotification",
+				ExistingPeriodicWorkPolicy.KEEP,
+				myWorkRequest
+			)
+		}
+
 
 		// Slider Menu
 		toggle = ActionBarDrawerToggle(this , main_drawer_main , R.string.open , R.string.close )
@@ -103,38 +130,42 @@ class MainActivity : AppCompatActivity() {
 					} // to Activity 2
 
 					override fun onItemLongClick(view: View?, position: Int) {
-
-						val _dialogLayout = layoutInflater.inflate(
-							R.layout.activity_detailed_info_alert_dialog,
-							null
-						)
-						var alert_et =
-							_dialogLayout.findViewById<EditText>(R.id.activity_detailed_info_alert_dialog_et_main)
-
-						val _displayTextAlertDialog = MaterialAlertDialogBuilder(this@MainActivity)
-							.setTitle("New Sub Task for ${adapter.cur_data[position].title} ?")
-							.setView(_dialogLayout)
-							.setPositiveButton("OK") { _, _ ->
-								val inp = alert_et.text.toString()
-								if (inp.isNotEmpty()) {
-									adapter.cur_data[position].subtitle = inp
-									POSITION = position
-									updateAdapter(adapter.cur_data[position])
-									Snackbar.make(
-										main_rv_main,
-										"Sub Task for ${adapter.cur_data[position].title} Changed !",
-										Snackbar.LENGTH_SHORT
-									).show()
-								}
-							}.setNegativeButton("CANCEL") { _, _ ->
-							}.create()
-						_displayTextAlertDialog.show()
+						itemLongClickRecyclerView(view , position)
 					} // Changes Subtext
 
 				}
 			)
 		)
 
+	}
+
+	private fun itemLongClickRecyclerView(view: View? , position: Int) {
+		if( adapter.cur_data[position].tasks.size < 2 ) return
+		adapter.isSelected[position] = !adapter.isSelected[position]
+		Log.d( "lvpos" , adapter.isSelected[position].toString() )
+		val cv = view?.findViewById<MaterialCardView>( R.id.recycler_cardview_cv_1 )
+		val tw = view?.findViewById<TextView>( R.id.recycler_cardview_tv_content )
+		if( adapter.isSelected[position] ){ // selected
+			val params = cv?.layoutParams
+			params?.width = cv?.layoutParams?.width
+			params?.height = resources.getDimension(R.dimen.card_height_expand).toInt()
+			cv?.layoutParams = params
+
+			var str : String  = ""
+			for( i in 0 until minOf(6 , adapter.cur_data[ position ].tasks.size ) ) str = str + adapter.cur_data[ position ].tasks[i] + "\n"
+			tw?.isSingleLine = false
+			tw?.text = if(adapter.cur_data[ position ].tasks.size > 0) str else "Every Thing Done !!"
+			cv?.animate()?.setInterpolator(AccelerateInterpolator())?.setDuration(3000)
+		}
+		else {
+			val params = cv?.layoutParams
+			params?.width = cv?.layoutParams?.width
+			params?.height = resources.getDimension(R.dimen.card_height_base).toInt()
+			cv?.layoutParams = params
+			tw?.isSingleLine = true
+			tw?.text = if(adapter.cur_data[ position ].tasks.size > 0)  adapter.cur_data[ position ].tasks[ 0 ] else "Every Thing Done !!"
+			cv?.animate()?.setInterpolator(AccelerateInterpolator())?.setDuration(3000)
+		}
 	}
 
 	// Starts 2nd Activity from RecyclerView(short press)
@@ -186,6 +217,24 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	fun goFeedback( view: View ){
+
+	}
+	// not working
+	override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+		Log.d( "WORKERTRIGGER" , "1" )
+		if(key != "notifications")
+		if( ! sharedPreferences!!.getBoolean(key , false ) ) {
+			WorkManager.getInstance().cancelAllWorkByTag("notificationWork") // stop work
+			Log.d( "WORKERBUILT" , "0" )
+		}
+		else{
+			Log.d( "WORKERBUILT" , "1" )
+			WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+				"periodicNotification",
+				ExistingPeriodicWorkPolicy.KEEP,
+				myWorkRequest
+			)
+		}
 
 	}
 

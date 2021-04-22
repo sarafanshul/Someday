@@ -16,12 +16,12 @@ import com.projectdelta.someday.constant.CHANNEL_NAME
 import com.projectdelta.someday.data.CardData
 import com.projectdelta.someday.viewModels.CardViewModel
 
-class CreateNotification( ) {
+class CreateNotification( _cardViewModel : CardViewModel ) {
 
-    lateinit var cardData: CardData
+    lateinit var cardData: LiveData<CardData>
+    val cardViewModel: CardViewModel = _cardViewModel
 
-    fun createNotificationChannel( context : Context ){
-
+    fun createNotificationChannel( context : Context){
         val channel = NotificationChannel( CHANNEL_ID , CHANNEL_NAME , NotificationManager.IMPORTANCE_LOW ).apply {
             enableLights(true)
         }
@@ -29,7 +29,7 @@ class CreateNotification( ) {
         manager.createNotificationChannel( channel )
     }
 
-    fun newNotification( context: Context , NOTIFICATION_ID : Int ){
+    fun newNotification( context: Context , NOTIFICATION_ID : Int = 1 ){
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -50,7 +50,7 @@ class CreateNotification( ) {
         }
     }
 
-    fun setToday( cd : CardData ){
-        cardData = cd
+    fun setToday( ){
+
     }
 }

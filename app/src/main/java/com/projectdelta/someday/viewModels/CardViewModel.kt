@@ -18,8 +18,8 @@ class CardViewModel(
 
     val getAllData : LiveData<List<CardData>>
     val getAllByOrder : LiveData<List<CardData>>
-    val today : LiveData<CardData>
     private val repository : CardDataRepository
+    lateinit var today : LiveData<CardData>
 
     init {
         val cardDataDao = AppDatabase.getDatabase(application).cardDataDao()

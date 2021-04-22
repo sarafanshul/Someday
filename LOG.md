@@ -91,6 +91,9 @@
 - Date - 22-04-21
 	- Expandable FAB added in ActivityInfo
 	- Support for change of subtext in Second Activity
+	- WorkManager API implemented for schudling notifications tasks in background
+	- Long press to expand card added
+	- Fonts changed to product sans (NOT OPEN SOURCE)(CHANGE BEFORE PUBLISHING)
 
 
 ## TODO
@@ -112,15 +115,16 @@
 -	Ordering based on Priority
 -	Notification Bugs 
 -	Reset Option
+-	Bugs in Workmanager 
 
 ### Sub-Important
--	Long Press Expands Card Height
+-	~~Long Press Expands Card Height~~
 -	~~Padding/Margin~~ 
 -	~~Highlight the current day~~
 -	~~Good Gradients~~ 
 -	~~Round Button~~
 -	~~Good CheckBox~~
 -	~~App Icon~~
--	Fonts
+-	~~Fonts~~
 -	~~Today on Top~~
 -	~~Credits~~

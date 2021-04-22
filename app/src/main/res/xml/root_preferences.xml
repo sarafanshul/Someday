@@ -60,8 +60,7 @@
 
         <Preference
             app:key="pref_about"
-            app:summary="Developed with Care By By Anshul Saraf"
-            app:title="Project Delta Initiative" />
+            app:title="Project By Anshul Saraf" />
 
     </PreferenceCategory>
 

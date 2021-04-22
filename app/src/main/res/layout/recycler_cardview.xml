@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="1dp"
+    android:animateLayoutChanges="true"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
@@ -11,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="135dp"
         app:cardCornerRadius="8dp"
+        android:animateLayoutChanges="true"
         android:clickable="true"
         app:cardElevation="5dp"
         android:layout_margin="10dp">

@@ -66,11 +66,16 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
     def lifecycle_ver = "2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_ver"
 
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    def work_version = "2.5.0"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+    implementation "androidx.work:work-rxjava2:$work_version"
+    implementation "androidx.work:work-gcm:$work_version"
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+    implementation "androidx.work:work-multiprocess:$work_version"
 
 }
