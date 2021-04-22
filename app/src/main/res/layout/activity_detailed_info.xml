@@ -41,17 +41,47 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_detailed_info_tv_subtask"
         tools:layout_editor_absoluteX="16dp" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/activity_detailed_info_efab_add"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_detailed_info_fab_extract"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
-        android:contentDescription="Create"
+        android:clickable="true"
+        android:focusable="true"
         android:foregroundGravity="bottom|right"
-        app:icon="@drawable/ic_plus"
-        android:text="Create"
+        app:srcCompat = "@drawable/ic_plus"
         app:layout_constraintBottom_toBottomOf="@+id/activity_detailed_info_rv_main"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_detailed_info_fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foregroundGravity="bottom|right"
+        android:backgroundTint="?light_on_primary"
+        android:visibility="gone"
+        android:contextClickable="false"
+        app:layout_constraintBottom_toTopOf="@+id/activity_detailed_info_fab_extract"
+        app:layout_constraintEnd_toEndOf="@+id/activity_detailed_info_fab_extract"
+        app:srcCompat="@drawable/ic_edit" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_detailed_info_fab_add_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foregroundGravity="bottom|right"
+        android:backgroundTint="?light_on_primary"
+        android:visibility="gone"
+        android:contextClickable="false"
+        app:layout_constraintBottom_toTopOf="@+id/activity_detailed_info_fab_add"
+        app:layout_constraintEnd_toEndOf="@+id/activity_detailed_info_fab_add"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/ic_subtext" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="nav_header_color">@drawable/nav_header_dark</item>
+        <item name="light_on_primary">@color/purple_200</item>
     </style>
 
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">

@@ -88,7 +88,11 @@
 	- Notification Class Implemented
 	- Support toggle for removing notifications
 
-	
+- Date - 22-04-21
+	- Expandable FAB added in ActivityInfo
+	- Support for change of subtext in Second Activity
+
+
 ## TODO
 ### Important
 -	~~Implemnt CardView in Recycler View~~

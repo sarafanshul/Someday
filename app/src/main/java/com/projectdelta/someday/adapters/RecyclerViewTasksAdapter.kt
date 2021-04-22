@@ -46,7 +46,7 @@ class RecyclerViewTasksAdapter( ) : RecyclerView.Adapter<RecyclerViewTasksAdapte
                 cardData.tasks.add(removed_pos, removed_item)
                 notifyItemInserted(removed_pos)
             }
-            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_efab_add) // for on top of efab
+            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_fab_extract) // for on top of efab
         }.show()
     }
 
@@ -57,7 +57,7 @@ class RecyclerViewTasksAdapter( ) : RecyclerView.Adapter<RecyclerViewTasksAdapte
         cardData.tasks.add( removed_item )
         notifyDataSetChanged()
         Snackbar.make( viewHolder.itemView , "$removed_item Added at Last For Next Week" ,Snackbar.LENGTH_LONG ).apply {
-            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_efab_add) // for on top of efab
+            anchorView = viewHolder.itemView.rootView.findViewById(R.id.activity_detailed_info_fab_extract) // for on top of efab
         }.show()
     }
 }

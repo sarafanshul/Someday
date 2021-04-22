@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		cardViewModel.today.observe(this ,androidx.lifecycle.Observer { cardData -> notificationAdapter.setToday( cardData ) })
 		if( sharedPreferences.getBoolean("notifications" , false ) )
-//			notificationAdapter.newNotification(this , NOTIFICATION_ID )
+//			notificationAdapter.newNotification(this , NOTIFICATION_ID ) // TODO("notifications does not work")
 
 		// Slider Menu
 		toggle = ActionBarDrawerToggle(this , main_drawer_main , R.string.open , R.string.close )

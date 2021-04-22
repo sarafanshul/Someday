@@ -9,4 +9,5 @@
     </style>
 
     <attr name="nav_header_color" format="reference" />
+    <attr name="light_on_primary" format="reference" />
 </resources>

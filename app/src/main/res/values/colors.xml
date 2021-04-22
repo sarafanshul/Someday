@@ -10,5 +10,6 @@
     <color name="mat_black">#E6171717</color>
     <color name="white_alpha">#E6FFFFFF</color>
     <color name="neon_green">#39ff14</color>
+    <color name="teal_100">#B2FFFF</color>
 
 </resources>
