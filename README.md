@@ -3,11 +3,11 @@ App to manage Weekly tasks
 
 Because  who needs to remind you every week to do Samething
 
-[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/sarafanshul/CardViewApp/blob/master/LICENSE)
 
 [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Kotlin-1f425f.svg)](https://kotlinlang.org/)
 
-[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
+[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://git-scm.com/)
 
 
 ## Preview
@@ -59,6 +59,6 @@ Input Task Layout
 <a href="https://github.com/sarafanshul/CardViewApp/raw/master/app/release/app-release.apk" download>Click to Download</a>
 
 
-![Maintaner](https://img.shields.io/badge/maintainer-AnshulSaraf-Green)
+[![Maintaner](https://img.shields.io/badge/maintainer-AnshulSaraf-Green)](https://github.com/sarafanshul)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
