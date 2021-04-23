@@ -6,6 +6,7 @@
 
         <SwitchPreferenceCompat
             app:key="notifications"
+            app:defaultValue="false"
             app:summary="Remind you about un-done tasks?"
             app:title="Enable notifications" />
 

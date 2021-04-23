@@ -26,13 +26,13 @@ object NotificationUtil {
 		manager.createNotificationChannel( channel )
 	}
 
-	fun newNotification( NOTIFICATION_ID : Int = 1 ){
+	fun newNotification( context_worker: Context , NOTIFICATION_ID : Int = 1 ){
 		Log.d("NotificationUtil|WorkerWrapper" , "newNotification")
-		val intent = Intent(context, MainActivity::class.java).apply {
+		val intent = Intent(context_worker, MainActivity::class.java).apply {
 			flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 		}
-		val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
-		val builder = NotificationCompat.Builder( context , CHANNEL_ID ).apply{
+		val pendingIntent: PendingIntent = PendingIntent.getActivity(context_worker, 0, intent, 0)
+		val builder = NotificationCompat.Builder( context_worker , CHANNEL_ID ).apply{
 			setSmallIcon(R.drawable.ic_todo)
 			setContentTitle("Welcome Back")
 			setContentText("Tap to view more.")
@@ -42,7 +42,7 @@ object NotificationUtil {
 			setPriority( NotificationCompat.PRIORITY_HIGH )
 		}
 
-		with(NotificationManagerCompat.from(context)) {
+		with(NotificationManagerCompat.from(context_worker)) {
 			// notificationId is a unique int for each notification that you must define
 			notify( NOTIFICATION_ID , builder.build())
 		}

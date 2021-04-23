@@ -24,7 +24,8 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters):
 	override fun doWork(): Result {
 
 		Log.d( "WorkerWrapper" , "DoWork" )
-		NotificationUtil.newNotification()
+
+		NotificationUtil.newNotification( applicationContext )
 
 		return Result.success()
 	}

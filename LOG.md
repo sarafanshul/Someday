@@ -120,7 +120,7 @@
 -	~~Notification Bugs~~
 -	Reset Option
 -	~~Bugs in Workmanager~~
--	Implement Work-Manager in Settings.OnPrefChanged.. insted of main
+-	~~Implement Work-Manager in Settings.OnPrefChanged.. insted of main~~
 -	Add sequential task in Work-manager for Data-Collection from DB
 
 ### Sub-Important

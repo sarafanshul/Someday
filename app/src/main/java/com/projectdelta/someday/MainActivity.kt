@@ -29,7 +29,7 @@ import com.projectdelta.someday.utils.NotificationWorker
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
 
-class MainActivity : AppCompatActivity() , SharedPreferences.OnSharedPreferenceChangeListener {
+class MainActivity : AppCompatActivity() {
 
 	lateinit var adapter : RecyclerViewCardAdapter
 	private lateinit var cardViewModel: CardViewModel
@@ -56,19 +56,19 @@ class MainActivity : AppCompatActivity() , SharedPreferences.OnSharedPreferenceC
 		NotificationUtil.createNotificationChannel()
 //		NotificationUtil.newNotification()
 
-		notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(16, TimeUnit.MINUTES)
-			.addTag("notificationWork")
-			.build()
-
-		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-		if( sharedPreferences.getBoolean("notifications" , false ) ) {
-			Log.d( "WorkerWrapper" , "main_16_minutes" )
-			WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-				"periodicNotification",
-				ExistingPeriodicWorkPolicy.REPLACE,
-				notificationWorkRequest
-			)
-		}
+//		notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(16, TimeUnit.MINUTES)
+//			.addTag("notificationWork")
+//			.build()
+////
+//		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+//		if( sharedPreferences.getBoolean("notifications" , false ) ) {
+//			Log.d( "WorkerWrapper" , "main_16_minutes" )
+//			WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+//				"periodicNotification",
+//				ExistingPeriodicWorkPolicy.REPLACE,
+//				notificationWorkRequest
+//			)
+//		}
 
 
 		// Slider Menu
@@ -200,9 +200,6 @@ class MainActivity : AppCompatActivity() , SharedPreferences.OnSharedPreferenceC
 
 	}
 	// not working
-	override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-
-	}
 
 	// implement onDestory function for persistence
 	override fun onDestroy() {
