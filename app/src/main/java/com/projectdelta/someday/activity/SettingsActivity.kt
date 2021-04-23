@@ -17,11 +17,6 @@ import kotlinx.android.synthetic.main.settings_activity.view.*
 
 class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPreferenceChangeListener {
 
-    companion object {
-        val RESULT_CODE_SETTINGS_NOT_CHANGED = 101
-        val RESULT_CODE_SETTINGS_CHANGED = 100
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme( R.style.Theme_CardVeiwApp )
@@ -33,6 +28,10 @@ class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPrefere
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        setResult( RESULT_CODE_SETTINGS_CHANGED )
+        if( sharedPreferences?.getBoolean(key , false) == true ){
+            // IMPL Work-Manager here
+        }else {
+            // Cancel Work
+        }
     }
 }

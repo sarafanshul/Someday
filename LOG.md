@@ -95,6 +95,10 @@
 	- Long press to expand card added
 	- Fonts changed to product sans (NOT OPEN SOURCE)(CHANGE BEFORE PUBLISHING)
 
+- Date - 23-04-21
+	- Singleton Class for NotiicationUtil for easy access in Work-Manager
+	- Work Manager Works 
+
 
 ## TODO
 ### Important
@@ -113,9 +117,11 @@
 -	~~ViewModel Implementation~~
 -	Functionality to Nuke Database (Start Fresh)
 -	Ordering based on Priority
--	Notification Bugs 
+-	~~Notification Bugs~~
 -	Reset Option
--	Bugs in Workmanager 
+-	~~Bugs in Workmanager~~
+-	Implement Work-Manager in Settings.OnPrefChanged.. insted of main
+-	Add sequential task in Work-manager for Data-Collection from DB
 
 ### Sub-Important
 -	~~Long Press Expands Card Height~~
