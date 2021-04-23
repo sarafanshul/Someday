@@ -13,8 +13,6 @@ class CardDataRepository(
 
     val getAllByOrder : LiveData<List<CardData>> = cardDataDao.getAllByOrder( DAY_VALUE )
 
-//    val getToday : LiveData<CardData> = cardDataDao.getToday( DAY_VALUE )
-
     suspend fun insertOrUpdate(card : CardData){
         cardDataDao.insertOrUpdate( card )
     }

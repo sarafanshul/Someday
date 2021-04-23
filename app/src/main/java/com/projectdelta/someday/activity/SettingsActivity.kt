@@ -15,6 +15,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.projectdelta.someday.MainActivity
 import com.projectdelta.someday.R
+import com.projectdelta.someday.constant.NOTIFICATION_INTERVAL
 import com.projectdelta.someday.fragment.SettingsFragment
 import com.projectdelta.someday.utils.NotificationUtil
 import com.projectdelta.someday.utils.NotificationWorker
@@ -46,7 +47,6 @@ class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPrefere
 
     private val workTag = "notificationWork" ; private val dataTag = "notificationData"
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        Log.d("WorkerWrapper|SettingActivity|Key = " , key!!)
 
         if(key!! == "notifications" ) {
             if (sharedPreferences?.getBoolean(key, false) == true) {
@@ -58,11 +58,9 @@ class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPrefere
     }
 
     private fun startNotifications(){
-        val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(15 , TimeUnit.MINUTES)
+        val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(NOTIFICATION_INTERVAL , TimeUnit.MINUTES)
                 .addTag(workTag)
                 .build()
-
-        Log.d("WorkerWrapper|SettingActivity", "start_settings_15_minutes")
 
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
                 "periodicNotification",
@@ -72,7 +70,6 @@ class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPrefere
     }
 
     private fun stopNotifications(){
-        Log.d("WorkerWrapper|SettingActivity", "STOP")
         WorkManager.getInstance().cancelAllWorkByTag(workTag)
         WorkManager.getInstance().cancelAllWorkByTag("periodicNotification")
     }

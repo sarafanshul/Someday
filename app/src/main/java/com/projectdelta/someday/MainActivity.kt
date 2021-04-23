@@ -53,23 +53,9 @@ class MainActivity : AppCompatActivity() {
 
 		setContentView(R.layout.activity_main)
 
+
 		NotificationUtil.context = applicationContext // Singleton Implementation
 		NotificationUtil.createNotificationChannel()
-//		NotificationUtil.newNotification()
-
-//		notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(16, TimeUnit.MINUTES)
-//			.addTag("notificationWork")
-//			.build()
-////
-//		val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-//		if( sharedPreferences.getBoolean("notifications" , false ) ) {
-//			Log.d( "WorkerWrapper" , "main_16_minutes" )
-//			WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-//				"periodicNotification",
-//				ExistingPeriodicWorkPolicy.REPLACE,
-//				notificationWorkRequest
-//			)
-//		}
 
 
 		// Slider Menu
@@ -149,28 +135,13 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	// Starts 2nd Activity from RecyclerView(short press)
-	private val SETTING_REQUEST_CODE = 100
 	private fun itemOnClickRecyclerView( context : Context , position: Int ) : Unit {
 		val curData = adapter.cur_data[position]
 		POSITION = position
 		Intent( context , ActivityDetailedInfo::class.java ).also{
 			it.putExtra( "DATA" , curData )
 			startActivity( it )
-//			startActivityForResult( it , SECOND_ACTIVITY_REQUEST_CODE )
 		}
-	}
-
-	// This method is called when the second activity finishes (depriciated , moved to DAO )
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-		super.onActivityResult(requestCode, resultCode, data)
-		// Check that it is the SecondActivity with an OK result
-//		if(requestCode == SETTING_REQUEST_CODE ){
-//			if( resultCode == Activity.RESULT_OK ){
-//
-//			}
-//		}
-
 	}
 
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -179,7 +150,7 @@ class MainActivity : AppCompatActivity() {
 		return super.onOptionsItemSelected(item)
 	}
 
-	// updates the data
+	// updates the data (depreciated)
 	fun updateAdapter(newData: CardData) : Unit{
 		adapter.cur_data[POSITION].tasks = newData.tasks // Check HERE if Directly "curData" or from adapter
 		adapter.cur_data[POSITION].subtitle = newData.subtitle
@@ -191,20 +162,5 @@ class MainActivity : AppCompatActivity() {
 		Intent( context , SettingsActivity::class.java ).also{
 			startActivity( it )
 		}
-	}
-
-	fun goCredits( view: View ){
-
-	}
-
-	fun goFeedback( view: View ){
-
-	}
-	// not working
-
-	// implement onDestory function for persistence
-	override fun onDestroy() {
-		super.onDestroy()
-//		cardViewModel.getAllData.value = adapter.cur_data
 	}
 }

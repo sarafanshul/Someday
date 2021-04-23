@@ -29,7 +29,6 @@ object NotificationUtil {
 	}
 
 	fun newNotification( context_worker: Context , NOTIFICATION_ID : Int = 1 ){
-		Log.d("NotificationUtil|WorkerWrapper" , "newNotification")
 		val intent = Intent(context_worker, MainActivity::class.java).apply {
 			flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 		}
@@ -38,7 +37,6 @@ object NotificationUtil {
 			setSmallIcon(R.drawable.ic_todo)
 			setContentTitle(data.title)
 			setContentText(data.subtitle)
-//            setOngoing( true )
 			setContentIntent(pendingIntent)
 			setAutoCancel(true)
 			setPriority( NotificationCompat.PRIORITY_HIGH )

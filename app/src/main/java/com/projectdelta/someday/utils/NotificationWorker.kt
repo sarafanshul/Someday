@@ -28,8 +28,6 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters):
 
 	override fun doWork(): Result {
 
-		Log.d( "WorkerWrapper" , "DoWork" )
-
 		var notification_data = CardData("Hello" , "Tap to view today's tasks" , mutableListOf())
 
 		val job = GlobalScope.launch {
