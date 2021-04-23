@@ -16,7 +16,12 @@ import com.projectdelta.someday.MainActivity
 import com.projectdelta.someday.R
 import com.projectdelta.someday.constant.CHANNEL_ID
 import com.projectdelta.someday.constant.CHANNEL_NAME
+import com.projectdelta.someday.constant.DAY_VALUE
+import com.projectdelta.someday.data.AppDatabase
 import com.projectdelta.someday.data.CardData
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class NotificationWorker(appContext: Context, workerParams: WorkerParameters):
 		Worker(appContext, workerParams) {
@@ -25,7 +30,14 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters):
 
 		Log.d( "WorkerWrapper" , "DoWork" )
 
-		NotificationUtil.newNotification( applicationContext )
+		var notification_data = CardData("Hello" , "Tap to view today's tasks" , mutableListOf())
+
+		val job = GlobalScope.launch {
+			NotificationUtil.data = AppDatabase.getDatabase(applicationContext).cardDataDao().getToday(
+				DAY_VALUE)
+			NotificationUtil.newNotification( applicationContext )
+		}
+		GlobalScope.launch { job.join() }
 
 		return Result.success()
 	}

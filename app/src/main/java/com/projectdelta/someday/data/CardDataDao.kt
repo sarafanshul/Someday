@@ -18,7 +18,7 @@ interface CardDataDao {
     fun getDataById( titleCardData : String) : LiveData<CardData>
 
     @Query("SELECT * FROM CardData WHERE _color == :dayValue")
-    fun getToday(dayValue : Int) : LiveData<CardData>
+    suspend fun getToday(dayValue : Int) : CardData
 
     @Delete
     suspend fun deleteData( data: CardData)

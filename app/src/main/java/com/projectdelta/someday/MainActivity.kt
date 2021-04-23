@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 	lateinit var today : CardData
 	lateinit var notificationWorkRequest : PeriodicWorkRequest
 
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 

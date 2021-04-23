@@ -98,7 +98,8 @@
 - Date - 23-04-21
 	- Singleton Class for NotiicationUtil for easy access in Work-Manager
 	- Work Manager Works 
-
+	- Work-Manager starts from Settings.OnPrefChanged.. insted of main (intended)
+	- Async Notifications in Work-Manager Works 
 
 ## TODO
 ### Important
@@ -121,7 +122,7 @@
 -	Reset Option
 -	~~Bugs in Workmanager~~
 -	~~Implement Work-Manager in Settings.OnPrefChanged.. insted of main~~
--	Add sequential task in Work-manager for Data-Collection from DB
+-	~~Add sequential task in Work-manager for Data-Collection from DB~~
 
 ### Sub-Important
 -	~~Long Press Expands Card Height~~

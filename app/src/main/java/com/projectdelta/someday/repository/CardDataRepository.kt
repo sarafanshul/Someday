@@ -1,5 +1,6 @@
 package com.projectdelta.someday.repository
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import com.projectdelta.someday.constant.DAY_VALUE
 import com.projectdelta.someday.data.CardDataDao
@@ -12,7 +13,7 @@ class CardDataRepository(
 
     val getAllByOrder : LiveData<List<CardData>> = cardDataDao.getAllByOrder( DAY_VALUE )
 
-    val getToday : LiveData<CardData> = cardDataDao.getToday( DAY_VALUE )
+//    val getToday : LiveData<CardData> = cardDataDao.getToday( DAY_VALUE )
 
     suspend fun insertOrUpdate(card : CardData){
         cardDataDao.insertOrUpdate( card )

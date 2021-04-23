@@ -12,10 +12,12 @@ import com.projectdelta.someday.MainActivity
 import com.projectdelta.someday.R
 import com.projectdelta.someday.constant.CHANNEL_ID
 import com.projectdelta.someday.constant.CHANNEL_NAME
+import com.projectdelta.someday.data.CardData
 
 object NotificationUtil {
 
 	lateinit var context: Context
+	var data:CardData = CardData("Today" , "Tap to view More" , mutableListOf())
 
 	fun createNotificationChannel( ){
 		Log.d("NotificationUtil|WorkerWrapper|Main" , "createNotification")
@@ -34,8 +36,8 @@ object NotificationUtil {
 		val pendingIntent: PendingIntent = PendingIntent.getActivity(context_worker, 0, intent, 0)
 		val builder = NotificationCompat.Builder( context_worker , CHANNEL_ID ).apply{
 			setSmallIcon(R.drawable.ic_todo)
-			setContentTitle("Welcome Back")
-			setContentText("Tap to view more.")
+			setContentTitle(data.title)
+			setContentText(data.subtitle)
 //            setOngoing( true )
 			setContentIntent(pendingIntent)
 			setAutoCancel(true)

@@ -10,6 +10,7 @@ import androidx.preference.PreferenceFragment
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.projectdelta.someday.MainActivity
@@ -43,26 +44,37 @@ class SettingsActivity : AppCompatActivity() , SharedPreferences.OnSharedPrefere
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this)
     }
 
+    private val workTag = "notificationWork" ; private val dataTag = "notificationData"
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        Log.d("WorkerWrapper|SettingActivity|Tag" , key!!)
-        val workTag = "notificationWork"
+        Log.d("WorkerWrapper|SettingActivity|Key = " , key!!)
+
         if(key!! == "notifications" ) {
             if (sharedPreferences?.getBoolean(key, false) == true) {
-                val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(15, TimeUnit.MINUTES)
-                        .addTag(workTag)
-                        .build()
-
-                Log.d("WorkerWrapper|SettingActivity", "start_settings_15_minutes")
-                WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-                        "periodicNotification",
-                        ExistingPeriodicWorkPolicy.REPLACE,
-                        notificationWorkRequest
-                )
+                startNotifications()
             } else {
-                Log.d("WorkerWrapper|SettingActivity", "STOP")
-                WorkManager.getInstance().cancelAllWorkByTag(workTag)
+                stopNotifications()
             }
         }
+    }
+
+    private fun startNotifications(){
+        val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(15 , TimeUnit.MINUTES)
+                .addTag(workTag)
+                .build()
+
+        Log.d("WorkerWrapper|SettingActivity", "start_settings_15_minutes")
+
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+                "periodicNotification",
+                ExistingPeriodicWorkPolicy.REPLACE,
+                notificationWorkRequest
+        )
+    }
+
+    private fun stopNotifications(){
+        Log.d("WorkerWrapper|SettingActivity", "STOP")
+        WorkManager.getInstance().cancelAllWorkByTag(workTag)
+        WorkManager.getInstance().cancelAllWorkByTag("periodicNotification")
     }
 
 }
