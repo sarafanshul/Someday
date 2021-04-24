@@ -1,4 +1,4 @@
-package com.projectdelta.someday.utils
+package com.projectdelta.someday.Util
 
 import android.content.Context
 import android.view.GestureDetector

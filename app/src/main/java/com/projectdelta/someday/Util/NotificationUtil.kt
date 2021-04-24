@@ -1,4 +1,4 @@
-package com.projectdelta.someday.utils
+package com.projectdelta.someday.Util
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,9 +10,12 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.projectdelta.someday.MainActivity
 import com.projectdelta.someday.R
-import com.projectdelta.someday.constant.CHANNEL_ID
-import com.projectdelta.someday.constant.CHANNEL_NAME
-import com.projectdelta.someday.data.CardData
+import com.projectdelta.someday.Constant.CHANNEL_ID
+import com.projectdelta.someday.Constant.CHANNEL_NAME
+import com.projectdelta.someday.Constant.pendingIntentRequestCode
+import com.projectdelta.someday.Data.CardData
+
+
 
 object NotificationUtil {
 
@@ -29,14 +32,19 @@ object NotificationUtil {
 	}
 
 	fun newNotification( context_worker: Context , NOTIFICATION_ID : Int = 1 ){
+		if( data.tasks.size == 0 ) return  // dont fire for empty tasks
 		val intent = Intent(context_worker, MainActivity::class.java).apply {
 			flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 		}
-		val pendingIntent: PendingIntent = PendingIntent.getActivity(context_worker, 0, intent, 0)
+		var inboxData = NotificationCompat.InboxStyle()
+		data.tasks.forEach { if(it != null ) inboxData.addLine(it) }
+		val _title = " Tasks scheduled for ${data.title}"
+		val pendingIntent: PendingIntent = PendingIntent.getActivity(context_worker, pendingIntentRequestCode, intent, 0) // increment pendingIntentRequestCode for new pending intent
 		val builder = NotificationCompat.Builder( context_worker , CHANNEL_ID ).apply{
 			setSmallIcon(R.drawable.ic_todo)
-			setContentTitle(data.title)
+			setContentTitle(_title)
 			setContentText(data.subtitle)
+			setStyle( inboxData )
 			setContentIntent(pendingIntent)
 			setAutoCancel(true)
 			setPriority( NotificationCompat.PRIORITY_HIGH )

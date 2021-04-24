@@ -1,4 +1,4 @@
-package com.projectdelta.someday.utils
+package com.projectdelta.someday.Util
 
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.projectdelta.someday.R
-import com.projectdelta.someday.adapters.RecyclerViewTasksAdapter
+import com.projectdelta.someday.Adapters.RecyclerViewTasksAdapter
 
 // https://www.youtube.com/watch?v=eEonjkmox-0
 class SwipeToDelete(

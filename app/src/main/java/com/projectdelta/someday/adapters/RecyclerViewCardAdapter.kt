@@ -1,15 +1,12 @@
-package com.projectdelta.someday.adapters
+package com.projectdelta.someday.Adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 import com.projectdelta.someday.R
-import com.projectdelta.someday.data.CardData
+import com.projectdelta.someday.Data.CardData
 import kotlinx.android.synthetic.main.recycler_cardview.view.*
-import java.util.*
 
 class RecyclerViewCardAdapter( ) : RecyclerView.Adapter<RecyclerViewCardAdapter.CardViewHolder>() {
     var cur_data : List<CardData> = emptyList<CardData>()

@@ -1,9 +1,9 @@
-package com.projectdelta.someday.data
+package com.projectdelta.someday.Data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.projectdelta.someday.utils.Converters
+import com.projectdelta.someday.Util.Converters
 import java.io.Serializable
 
 

@@ -1,12 +1,7 @@
-package com.projectdelta.someday.fragment
+package com.projectdelta.someday.Fragment
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 import com.projectdelta.someday.R
 
 class SettingsFragment : PreferenceFragmentCompat() {

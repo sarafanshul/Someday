@@ -1,10 +1,9 @@
-package com.projectdelta.someday.repository
+package com.projectdelta.someday.Repository
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import com.projectdelta.someday.constant.DAY_VALUE
-import com.projectdelta.someday.data.CardDataDao
-import com.projectdelta.someday.data.CardData
+import com.projectdelta.someday.Constant.DAY_VALUE
+import com.projectdelta.someday.Data.CardDataDao
+import com.projectdelta.someday.Data.CardData
 
 class CardDataRepository(
     private val cardDataDao: CardDataDao

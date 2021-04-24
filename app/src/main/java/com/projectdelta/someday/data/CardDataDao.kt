@@ -1,4 +1,4 @@
-package com.projectdelta.someday.data
+package com.projectdelta.someday.Data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

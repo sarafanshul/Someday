@@ -1,4 +1,4 @@
-package com.projectdelta.someday.data
+package com.projectdelta.someday.Data
 
 import androidx.room.Database
 import androidx.room.Room
@@ -6,9 +6,9 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import android.content.Context
 import androidx.room.TypeConverters
-import com.projectdelta.someday.constant.DATABASE_NAME
-import com.projectdelta.someday.constant.PREPOPULATE_DATA
-import com.projectdelta.someday.utils.Converters
+import com.projectdelta.someday.Constant.DATABASE_NAME
+import com.projectdelta.someday.Constant.PREPOPULATE_DATA
+import com.projectdelta.someday.Util.Converters
 import java.util.concurrent.Executors
 
 @Database(
@@ -27,8 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
-            val tempInstance =
-                INSTANCE
+            val tempInstance = INSTANCE
             if( tempInstance != null )
                 return tempInstance
 

@@ -1,4 +1,4 @@
-package com.projectdelta.someday.viewModels
+package com.projectdelta.someday.ViewModels
 
 // https://www.youtube.com/watch?v=lwAvI3WDXBY
 
@@ -6,9 +6,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.projectdelta.someday.repository.CardDataRepository
-import com.projectdelta.someday.data.AppDatabase
-import com.projectdelta.someday.data.CardData
+import com.projectdelta.someday.Repository.CardDataRepository
+import com.projectdelta.someday.Data.AppDatabase
+import com.projectdelta.someday.Data.CardData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

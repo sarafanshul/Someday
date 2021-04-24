@@ -1,11 +1,11 @@
-package com.projectdelta.someday.adapters
+package com.projectdelta.someday.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.projectdelta.someday.R
-import com.projectdelta.someday.data.CardData
+import com.projectdelta.someday.Data.CardData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info_recycler_view.view.*
 

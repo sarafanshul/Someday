@@ -1,12 +1,9 @@
 package com.projectdelta.someday
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -14,20 +11,17 @@ import android.view.animation.AccelerateInterpolator
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.ViewModelProvider
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.*
 import com.google.android.material.card.MaterialCardView
-import com.projectdelta.someday.activity.ActivityDetailedInfo
-import com.projectdelta.someday.adapters.RecyclerViewCardAdapter
-import com.projectdelta.someday.data.CardData
-import com.projectdelta.someday.utils.RecyclerItemClickListenr
-import com.projectdelta.someday.viewModels.CardViewModel
-import com.projectdelta.someday.activity.SettingsActivity
-import com.projectdelta.someday.utils.NotificationUtil
-import com.projectdelta.someday.utils.NotificationWorker
+import com.projectdelta.someday.Activity.ActivityDetailedInfo
+import com.projectdelta.someday.Adapters.RecyclerViewCardAdapter
+import com.projectdelta.someday.Data.CardData
+import com.projectdelta.someday.Util.RecyclerItemClickListenr
+import com.projectdelta.someday.ViewModels.CardViewModel
+import com.projectdelta.someday.Activity.SettingsActivity
+import com.projectdelta.someday.Util.NotificationUtil
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 

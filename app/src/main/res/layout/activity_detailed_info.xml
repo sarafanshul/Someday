@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ActivityDetailedInfo">
+    tools:context=".Activity.ActivityDetailedInfo">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/activity_detailed_info_tw_heading"

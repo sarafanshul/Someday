@@ -1,4 +1,4 @@
-package com.projectdelta.someday.utils
+package com.projectdelta.someday.Util
 
 // https://stackoverflow.com/questions/44580702/android-room-persistent-library-how-to-insert-class-that-has-a-list-object-fie?noredirect=1&lq=1
 // https://stackoverflow.com/questions/44582397/android-room-persistent-library-typeconverter-error-of-error-cannot-figure-ou

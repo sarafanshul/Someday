@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         app:key="pref_cat_notification"
@@ -17,9 +18,13 @@
         app:title="My data">
 
         <Preference
-            app:key="pref_data"
-            app:summary="Clear all my user data and reset app"
-            app:title="Start fresh" />
+            app:key="clear_data"
+            app:summary="Manage my data"
+            app:title="My data">
+            <intent
+                android:targetPackage="com.projectdelta.someday"
+                android:targetClass="com.projectdelta.someday.Activity.DeleteDataActivity"/>
+             </Preference>
 
     </PreferenceCategory>
 

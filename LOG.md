@@ -96,12 +96,21 @@
 	- Fonts changed to product sans (NOT OPEN SOURCE)(CHANGE BEFORE PUBLISHING)
 
 - Date - 23-04-21
-	- Singleton Class for NotiicationUtil for easy access in Work-Manager
+	- Singleton Class for NotificationUtil for easy access in Work-Manager
 	- Work Manager Works 
 	- Work-Manager starts from Settings.OnPrefChanged.. insted of main (intended)
 	- Async Notifications in Work-Manager Works 
 
+- Date 24-04-21
+	- Notifiaction style and implementation changet to inboxView
+	- Reset Database functionality added
+
 ## TODO
+
+### Open 
+-	Ordering based on Priority
+-	Notification gap time
+
 ### Important
 -	~~Implemnt CardView in Recycler View~~
 -	~~Implement layout Structure~~
@@ -116,10 +125,8 @@
 -	~~Implement Database(Stage 1)~~
 -	~~Pre-Populate Database (not HardCoded)~~
 -	~~ViewModel Implementation~~
--	Functionality to Nuke Database (Start Fresh)
--	Ordering based on Priority
+-	~~Functionality to Nuke Database (Start Fresh)~~
 -	~~Notification Bugs~~
--	Reset Option
 -	~~Bugs in Workmanager~~
 -	~~Implement Work-Manager in Settings.OnPrefChanged.. insted of main~~
 -	~~Add sequential task in Work-manager for Data-Collection from DB~~

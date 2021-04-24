@@ -1,4 +1,4 @@
-package com.projectdelta.someday.activity
+package com.projectdelta.someday.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,15 +7,14 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.EditText
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.projectdelta.someday.R
-import com.projectdelta.someday.adapters.RecyclerViewTasksAdapter
-import com.projectdelta.someday.data.CardData
-import com.projectdelta.someday.viewModels.TaskViewModel
-import com.projectdelta.someday.utils.SwipeToDelete
+import com.projectdelta.someday.Adapters.RecyclerViewTasksAdapter
+import com.projectdelta.someday.Data.CardData
+import com.projectdelta.someday.ViewModels.TaskViewModel
+import com.projectdelta.someday.Util.SwipeToDelete
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detailed_info.*
