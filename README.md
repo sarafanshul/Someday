@@ -12,52 +12,129 @@ Because  who needs to remind you every week to do Samething
 
 ## Preview
 
-Main Screen App Layout
+- Main Layout
 
-- <details><summary>Show</summary>
+	- <details><summary>Light</summary>
 
-	[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
+		[![prototype 1](/app_images/1.png "prototype 1")](/app_images/1.png "prototype 1")
 
-</details>
+	</details>
 
-- <details><summary>Show</summary>
+	- <details><summary>Dark</summary>
 
-	[![prototype 1](/app_images/preview_v_1d.png "prototype 1d")](/app_images/preview_v_1d.png "prototype 1d")
+		[![prototype 1](/app_images/1d.png "prototype 1d")](/app_images/1d.png "prototype 1d")
 
-</details>
+	</details>
 
-Second Activity Layout
+- Main Layout (Expanded)
 
-- <details><summary>Show</summary>
+	- <details><summary>Light</summary>
 
-	[![prototype 2](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
+		[![prototype 1](/app_images/1e.png "prototype 1")](/app_images/1e.png "prototype 1")
 
-</details>
+	</details>
 
-- <details><summary>Show</summary>
+	- <details><summary>Dark</summary>
 
-	[![prototype 2](/app_images/preview_v_9d.png "prototype 9d")](/app_images/preview_v_9d.png "prototype 9d")
+		[![prototype 1](/app_images/1ed.png "prototype 1d")](/app_images/1ed.png "prototype 1d")
 
-</details>
+	</details>
 
-Input Task Layout
+- Tasks Layout
 
-- <details><summary>Show</summary>
+	- <details><summary>Light</summary>
 
-	[![prototype 3](/app_images/preview_v_8.png "prototype 8")](/app_images/preview_v_8.png "prototype 3")
+		[![prototype 2](/app_images/2.png "prototype 9")](/app_images/2.png "prototype 9")
 
-</details>
+	</details>
 
-- <details><summary>Show</summary>
+	- <details><summary>Dark</summary>
 
-	[![prototype 3](/app_images/preview_v_8d.png "prototype 8d")](/app_images/preview_v_8d.png "prototype 3")
+		[![prototype 2](/app_images/2d.png "prototype 9d")](/app_images/2d.png "prototype 9d")
 
-</details>
+	</details>
 
+- New Task
 
-## Try it out Yourself 
-<a href="https://github.com/sarafanshul/CardViewApp/raw/master/app/release/app-release.apk" download>Click to Download</a>
+	- <details><summary>Show</summary>
 
+		[![prototype 3](/app_images/3.png "prototype 8")](/app_images/3.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Show</summary>
+
+		[![prototype 3](/app_images/3d.png "prototype 8d")](/app_images/3d.png "prototype 3")
+
+	</details>
+
+- Mark task Complete (RED) & Complete for this week (BLUE)
+
+	- <details><summary>Complete</summary>
+
+		[![prototype 3](/app_images/4c.png "prototype 8")](/app_images/4c.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Remind me next week</summary>
+
+		[![prototype 3](/app_images/4b.png "prototype 8")](/app_images/4b.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Complete notification</summary>
+
+		[![prototype 3](/app_images/4d.png "prototype 8")](/app_images/4d.png "prototype 3")
+
+	</details>
+
+- Settings Slider
+
+	- <details><summary>Light</summary>
+
+		[![prototype 3](/app_images/5.png "prototype 8")](/app_images/5.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Light</summary>
+
+		[![prototype 3](/app_images/5d.png "prototype 8")](/app_images/5d.png "prototype 3")
+
+	</details>
+
+- Settings menu
+
+	- <details><summary>Light</summary>
+
+		[![prototype 3](/app_images/6.png "prototype 8")](/app_images/6.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Light</summary>
+
+		[![prototype 3](/app_images/6d.png "prototype 8")](/app_images/6d.png "prototype 3")
+
+	</details>
+
+- Notifications
+
+	- <details><summary>Light & Colapsed</summary>
+
+		[![prototype 3](/app_images/7.png "prototype 8")](/app_images/7.png "prototype 3")
+
+	</details>
+
+	- <details><summary>Dark & Expanded</summary>
+
+		[![prototype 3](/app_images/7d.png "prototype 8")](/app_images/7d.png "prototype 3")
+
+	</details>
+
+### Stable versions
+
+<a href="https://github.com/sarafanshul/CardViewApp/raw/master/app/release/app-release.apk" download>Try it out Yourself</a>
+
+# Contributing 
 
 [![Maintaner](https://img.shields.io/badge/maintainer-AnshulSaraf-Green)](https://github.com/sarafanshul)
 

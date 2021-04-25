@@ -2,21 +2,9 @@
 ## Log
 - Date - 16-04-21
 	- start from base , colors and cards are working fine
-	- <details><summary>Preview 1</summary>
-
-		[![prototype 1](/app_images/preview_v_1.png "prototype 1")](/app_images/preview_v_1.png "prototype 1")
-
-	</details>
-
 	- added onclick listenr for recycler view
 	- Fragment View in Recycler View seems "Hard" to implement 
 	- added current weekday rotate support
-	- <details><summary>Preview 2</summary>
-
-		[![prototype 2](/app_images/preview_v_2.png "prototype 2")](/app_images/preview_v_2.png "prototype 2")
-
-	</details>
-	
 	- Shift from Fragment to Activity Done
 	- Data comes Back from new Activity and updates the recyclerView Adapter
 
@@ -24,45 +12,16 @@
 	- Added RecyclerView in Second Activity
 	- Data Updates works "Smoothly"
 	- Alert Dialog for data update implemented
-	- <details><summary>Preview 3</summary>
-
-		[![prototype 3](/app_images/preview_v_3.png "prototype 3")](/app_images/preview_v_3.png "prototype 3")
-
-	</details>
-	
 	- Added Swipe to Delete with Undo SnackBar
-	- <details><summary>Preview 4</summary>
-
-		[![prototype 4](/app_images/preview_v_4.png "prototype 4")](/app_images/preview_v_4.png "prototype 4")
-
-	</details>
-	
 	- Added red Color and Delete Icon in Swipe To Delete
-	- <details><summary>Preview 5</summary>
-
-		[![prototype 5](/app_images/preview_v_5.png "prototype 5")](/app_images/preview_v_5.png "prototype 5")
-
-	</details>
-	
 	- replaced Toasts to SnackBar 
-	- replaced *Round Button to [FAB](https://material.io/develop/android/components/floating-action-button)
+	- replaced *Round Button to FAB
 	- fixed Snackbar overlap to FAB
 	- Good Gradients added and Icons and Theme Colors
 	- Added Title Divider using styles
-	- <details><summary>Preview 7</summary>
-
-		[![prototype 7](/app_images/preview_v_7.png "prototype 7")](/app_images/preview_v_7.png "prototype 7")
-
-	</details>
-	
 	- Added red Color and Delete Icon in Swipe To Delete
 	- Changed CardView to Material TextView in RecyclerView - 2
 	- Alert Dialog to Material IO AlertDialog
-	- <details><summary>Preview 9</summary>
-
-		[![prototype 9](/app_images/preview_v_9.png "prototype 9")](/app_images/preview_v_9.png "prototype 9")
-
-	</details>
 
 - Date - 18-04-21
 	- Added Splash Screen
@@ -105,40 +64,45 @@
 	- Notifiaction style and implementation changet to inboxView
 	- Reset Database functionality added
 
+- Date 25-05-21
+	- Changed fonts to Open-Source Roboto
+	- Preview Images
+	- Project Completed !
+
 ## TODO
 
-### Open 
--	Ordering based on Priority
--	Notification gap time
+- Open
+	-	Ordering based on Priority
+	-	Notification gap time
 
-### Important
--	~~Implemnt CardView in Recycler View~~
--	~~Implement layout Structure~~
--	~~Implemnt ItemOnclick in Recycler View~~
--	~~Shift from Fragment to Activity~~
--	~~RecyclerView in Second Activity for displaying Tasks~~
--	~~AlertDialog for "Round Button"~~
--	~~Delete Items from List and Update~~
--	~~Add Swipe To Delete and Undo~~
--	~~fixed Snackbar overlap to FAB~~
--	~~Added Title Divider~~
--	~~Implement Database(Stage 1)~~
--	~~Pre-Populate Database (not HardCoded)~~
--	~~ViewModel Implementation~~
--	~~Functionality to Nuke Database (Start Fresh)~~
--	~~Notification Bugs~~
--	~~Bugs in Workmanager~~
--	~~Implement Work-Manager in Settings.OnPrefChanged.. insted of main~~
--	~~Add sequential task in Work-manager for Data-Collection from DB~~
+- Back-End
+	-	~~Implemnt CardView in Recycler View~~
+	-	~~Implement layout Structure~~
+	-	~~Implemnt ItemOnclick in Recycler View~~
+	-	~~Shift from Fragment to Activity~~
+	-	~~RecyclerView in Second Activity for displaying Tasks~~
+	-	~~AlertDialog for "Round Button"~~
+	-	~~Delete Items from List and Update~~
+	-	~~Add Swipe To Delete and Undo~~
+	-	~~fixed Snackbar overlap to FAB~~
+	-	~~Added Title Divider~~
+	-	~~Implement Database(Stage 1)~~
+	-	~~Pre-Populate Database (not HardCoded)~~
+	-	~~ViewModel Implementation~~
+	-	~~Functionality to Nuke Database (Start Fresh)~~
+	-	~~Notification Bugs~~
+	-	~~Bugs in Workmanager~~
+	-	~~Implement Work-Manager in Settings.OnPrefChanged.. insted of main~~
+	-	~~Add sequential task in Work-manager for Data-Collection from DB~~
 
-### Sub-Important
--	~~Long Press Expands Card Height~~
--	~~Padding/Margin~~ 
--	~~Highlight the current day~~
--	~~Good Gradients~~ 
--	~~Round Button~~
--	~~Good CheckBox~~
--	~~App Icon~~
--	~~Fonts~~
--	~~Today on Top~~
--	~~Credits~~
+- Aesthetics
+	-	~~Long Press Expands Card Height~~
+	-	~~Padding/Margin~~ 
+	-	~~Highlight the current day~~
+	-	~~Good Gradients~~ 
+	-	~~Round Button~~
+	-	~~Good CheckBox~~
+	-	~~App Icon~~
+	-	~~Fonts~~
+	-	~~Today on Top~~
+	-	~~Credits~~
