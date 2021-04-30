@@ -3,6 +3,9 @@ App to manage Weekly tasks
 
 Because  who needs to remind you every week to do Samething
 
+[![prototype 1](/mock_ups/previewed.png "mock_image")](/mock_ups/previewed.png "mock_image")
+
+
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/sarafanshul/CardViewApp/blob/master/LICENSE)
 
 [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Kotlin-1f425f.svg)](https://kotlinlang.org/)
